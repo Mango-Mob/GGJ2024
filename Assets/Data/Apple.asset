@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 255d50efe58879141b6013f99a7719da, type: 3}
   m_Name: Apple
   m_EditorClassIdentifier: 
+  healthTime: 30
+  deathTime: 5
   aggroRadius: 3
   aggroDelta: 0.5
   IdleSpeed: 2
