@@ -45,5 +45,11 @@ public class PlayerController : MonoBehaviour
         currentMove = move;
 
         playerMovement.Move(move);
+
+        // Diving control
+        if (InputManager.Instance.IsGamepadButtonDown(ButtonType.SOUTH, 0) || InputManager.Instance.IsKeyDown(KeyType.SPACE))
+        {
+            playerMovement.Dive();
+        }
     }
 }
