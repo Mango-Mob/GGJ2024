@@ -75,6 +75,22 @@ public class PlayerMovement : MonoBehaviour
         {
             characterController.Move(model.forward * diveSpeed * Time.deltaTime);
 
+            Collider[] hitColliders = Physics.OverlapSphere(grabCenter.position, grabRadius, 6);
+            foreach (var collider in hitColliders)
+            {
+                Fruit targetFruit = collider.GetComponentInChildren<Fruit>();
+
+                if (targetFruit)
+                {
+                    Debug.Log("Hit fruit " + targetFruit.name);
+
+                    isDiving = false;
+
+                    // Leave coroutine
+                    yield break;
+                }
+            }
+
             yield return new WaitForEndOfFrame(); 
         }
 
@@ -84,6 +100,6 @@ public class PlayerMovement : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawSphere(grabCenter.position, grabRadius);
+        Gizmos.DrawWireSphere(grabCenter.position, grabRadius);
     }
 }
