@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8327154024864971472}
   - component: {fileID: 5149697441571661750}
   - component: {fileID: 9038095206213806643}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 3637548937207919790}
   - component: {fileID: 4119486264716280006}
   - component: {fileID: 7118003264999073650}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1373710700608666907}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 8893378793254511103}
   - component: {fileID: 6744288619249741337}
   - component: {fileID: 3961543671949644752}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemyBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
