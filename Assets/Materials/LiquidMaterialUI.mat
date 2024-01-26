@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: LiquidMaterialUI
-  m_Shader: {fileID: 4800000, guid: 066872a7b2cfb42daa730970455ea687, type: 3}
+  m_Shader: {fileID: 4800000, guid: 4d3147f09ae442644b81c7b887bd184b, type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -96,3 +96,4 @@ Material:
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _WaterColor: {r: 1, g: 1, b: 0.2, a: 1}
+  m_BuildTextureStacks: []

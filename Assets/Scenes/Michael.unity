@@ -507,6 +507,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de0b6df5de9a48e4cb6b0423e03025cf, type: 3}
+--- !u!222 &569376898 stripped
+CanvasRenderer:
+  m_CorrespondingSourceObject: {fileID: 9097124580907541503, guid: 4f731eac437aea64d81ad563110ec668, type: 3}
+  m_PrefabInstance: {fileID: 8399326836876209494}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &805084851
 GameObject:
   m_ObjectHideFlags: 0
@@ -1934,6 +1939,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 805084855}
     m_Modifications:
+    - target: {fileID: 3443030514912960035, guid: 4f731eac437aea64d81ad563110ec668, type: 3}
+      propertyPath: LiquidRenderer
+      value: 
+      objectReference: {fileID: 569376898}
     - target: {fileID: 9097124582522243504, guid: 4f731eac437aea64d81ad563110ec668, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2000,11 +2009,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9097124582522243504, guid: 4f731eac437aea64d81ad563110ec668, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -570.5
+      value: -329
       objectReference: {fileID: 0}
     - target: {fileID: 9097124582522243504, guid: 4f731eac437aea64d81ad563110ec668, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -319.5
+      value: -41
       objectReference: {fileID: 0}
     - target: {fileID: 9097124582522243504, guid: 4f731eac437aea64d81ad563110ec668, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2018,9 +2027,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9097124582522243505, guid: 4f731eac437aea64d81ad563110ec668, type: 3}
+      propertyPath: m_ShowMaskGraphic
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9097124582522243507, guid: 4f731eac437aea64d81ad563110ec668, type: 3}
       propertyPath: m_Name
       value: OrbObjectUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 9097124582522243511, guid: 4f731eac437aea64d81ad563110ec668, type: 3}
+      propertyPath: m_Maskable
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f731eac437aea64d81ad563110ec668, type: 3}
