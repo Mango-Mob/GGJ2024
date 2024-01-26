@@ -654,13 +654,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 805084855}
     m_Modifications:
     - target: {fileID: 9097124580676005715, guid: 4f731eac437aea64d81ad563110ec668, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: d41e3ff310122e84f995026a55392ace, type: 3}
-    - target: {fileID: 9097124581811271725, guid: 4f731eac437aea64d81ad563110ec668, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 5b56a028c4d938f4b97d6bee4837751c, type: 3}
+      propertyPath: m_Maskable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9097124582522243504, guid: 4f731eac437aea64d81ad563110ec668, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -753,22 +749,6 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: ce2014bd7ac218f429f849450b30d46e, type: 3}
-    - target: {fileID: 9097124582522243511, guid: 4f731eac437aea64d81ad563110ec668, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9097124582522243511, guid: 4f731eac437aea64d81ad563110ec668, type: 3}
-      propertyPath: m_Maskable
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9097124582522243511, guid: 4f731eac437aea64d81ad563110ec668, type: 3}
-      propertyPath: m_RaycastTarget
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9097124582522243511, guid: 4f731eac437aea64d81ad563110ec668, type: 3}
-      propertyPath: m_UseSpriteMesh
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f731eac437aea64d81ad563110ec668, type: 3}
 --- !u!224 &1235400895 stripped
