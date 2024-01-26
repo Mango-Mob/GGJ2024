@@ -51,6 +51,9 @@ public class InputManager : SingletonPersistent<InputManager>
     protected Keyboard keyboard = Keyboard.current;
     protected int gamepadCount;
 
+    public bool isCursorVisible = true;
+    public CursorLockMode cursorMode = CursorLockMode.None;
+
     public bool bindHasUpdated = true;
     [Header("Keyboard Sprites")]
     [SerializeField] protected Sprite m_leftClick;
@@ -160,7 +163,10 @@ public class InputManager : SingletonPersistent<InputManager>
 
     private void Update()
     {
-        if(gamepadCount < Gamepad.all.Count)
+        Cursor.lockState = cursorMode;
+        Cursor.visible = isCursorVisible;
+
+        if (gamepadCount < Gamepad.all.Count)
         {
             for (int i = gamepadCount; i < Gamepad.all.Count; i++)
             {

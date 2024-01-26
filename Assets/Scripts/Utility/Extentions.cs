@@ -60,6 +60,11 @@ public static class Extentions
         return new Vector3( (A.x + B.x) / 2f, (A.y + B.y) / 2f, (A.z + B.z) / 2f);
     }
 
+    public static Vector2 FromAngle( float radians, float distance)
+    {
+        return new Vector2(Mathf.Cos(radians), Mathf.Sin(radians)) * distance;
+    }
+
     public static void GizmosDrawCircle(Vector3 point, float radius)
     {
         Gizmos.matrix = Matrix4x4.TRS(point, Quaternion.identity, new Vector3(1f, 0f, 1f));
@@ -235,5 +240,10 @@ public static class Extentions
 
         options[index] = replacer;
 
+    }
+
+    public static bool Roll(int chance)
+    {
+        return chance > 100 || Random.Range(0, 99) > chance;
     }
 }
