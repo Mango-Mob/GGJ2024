@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private Transform model;
+    [SerializeField] private Transform playerCamera;
 
     [Header("Stats")]
     [SerializeField] private float moveSpeed = 5.0f;
@@ -29,7 +30,16 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Move(Vector2 _move)
     {
-        Vector3 movement = new Vector3(_move.x, 0.0f, _move.y);
+        Vector3 cameraForward = playerCamera.forward;
+        cameraForward.y = 0.0f;
+        cameraForward.Normalize();
+
+        Vector3 cameraRight = playerCamera.right;
+        cameraRight.y = 0.0f;
+        cameraRight.Normalize();
+
+        Vector3 movement = cameraForward * _move.y;
+        movement += cameraRight * _move.x;
 
         model.transform.forward = Vector3.RotateTowards(model.transform.forward, movement, rotSpeed * Time.deltaTime, 0.0f);
 
