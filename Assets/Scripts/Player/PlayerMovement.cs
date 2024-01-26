@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private Transform model;
     [SerializeField] private Transform playerCamera;
-    [SerializeField] private Animator playerAnimator;
+    public Animator playerAnimator;
 
     [Header("Stats")]
     [SerializeField] private float moveSpeed = 5.0f;
@@ -40,8 +40,6 @@ public class PlayerMovement : MonoBehaviour
         if (isDiving)
             return;
 
-        playerAnimator.SetBool("IsMoving", _move.magnitude > 0.0f);
-
         Vector3 cameraForward = playerCamera.forward;
         cameraForward.y = 0.0f;
         cameraForward.Normalize();
@@ -59,11 +57,16 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Dive()
     {
+        if (isDiving)
+            return;
+
         StartCoroutine(DiveCoroutine());
     }
     private IEnumerator DiveCoroutine()
     {
-        playerAnimator.Play("Dive");
+        playerAnimator.CrossFade("Dive", 0.2f);
+
+        isDiving = true;
 
         float startTime = Time.time; 
         while (Time.time < startTime + diveDuration)
@@ -71,5 +74,7 @@ public class PlayerMovement : MonoBehaviour
             characterController.Move(model.forward * diveSpeed * Time.deltaTime);
             yield return new WaitForEndOfFrame(); 
         }
+
+        isDiving = false;
     }
 }
