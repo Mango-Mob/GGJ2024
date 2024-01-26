@@ -270,6 +270,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 24ee65ca51e9dfa4781a602c209ca762, type: 2}
   state: 0
+  mainRenderer: {fileID: 5149697441571661750}
+  materialBlend:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.7975983
+      value: 0.27535954
+      inSlope: 1.1554196
+      outSlope: 1.1554196
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.06334733
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 7.337272
+      outSlope: 7.337272
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.080994494
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  healthyMaterial: {fileID: 2100000, guid: 1f350bb35ab020841a76abc5e60cd1d4, type: 2}
+  zombieMaterial: {fileID: 2100000, guid: 26b43cbb71555bc42a7a775e98a8802b, type: 2}
 --- !u!195 &3961543671949644752
 NavMeshAgent:
   m_ObjectHideFlags: 0
