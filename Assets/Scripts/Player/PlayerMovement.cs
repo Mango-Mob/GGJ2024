@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private Transform model;
     [SerializeField] private Transform playerCamera;
+    [SerializeField] private Transform grabCenter;
+    [SerializeField] private Transform grabSocket; // Socket Enemies get attached to while grabbed
     public Animator playerAnimator;
 
     [Header("Stats")]
@@ -14,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float rotSpeed = 5.0f;
     [SerializeField] private float diveSpeed = 10.0f;
     [SerializeField] private float diveDuration = 0.5f;
-
+    [SerializeField] private float grabRadius = 0.5f;
 
     private CharacterController characterController;
     private bool isDiving;
@@ -72,9 +74,16 @@ public class PlayerMovement : MonoBehaviour
         while (Time.time < startTime + diveDuration)
         {
             characterController.Move(model.forward * diveSpeed * Time.deltaTime);
+
             yield return new WaitForEndOfFrame(); 
         }
 
         isDiving = false;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(grabCenter.position, grabRadius);
     }
 }
