@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 49012adb653b23543a0718b79ff47777, type: 2}
+    - target: {fileID: 6744288619249741337, guid: ff6742ced64f768428deae5fb2a4b602, type: 3}
+      propertyPath: healthyMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 49012adb653b23543a0718b79ff47777, type: 2}
     - target: {fileID: 7559807807822401273, guid: ff6742ced64f768428deae5fb2a4b602, type: 3}
       propertyPath: m_Name
       value: EnemyGrape
