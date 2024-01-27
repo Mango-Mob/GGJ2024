@@ -83,6 +83,33 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        juiceMashUI.ToggleVisibility(playerMovement.playerAnimator.GetBool("IsTickling"));
+        juiceMashUI.ToggleVisibility(playerMovement.playerAnimator.GetBool("IsTickling"), playerMovement.GetGrabbedFruit() ? playerMovement.GetGrabbedFruit().juiceAmount : 0.0f);
+
+        if (InputManager.Instance.IsGamepadButtonDown(ButtonType.RB, 0) || InputManager.Instance.IsKeyDown(KeyType.E))
+        {
+            ChangeGlass(true);
+        }
+        if (InputManager.Instance.IsGamepadButtonDown(ButtonType.LB, 0) || InputManager.Instance.IsKeyDown(KeyType.Q))
+        {
+            ChangeGlass(false);
+        }
+    }
+
+    public void ChangeGlass(bool _forward)
+    {
+        if (_forward)
+        {
+            LiquidQuantity tempLiq = glassQuantities[0];
+            glassQuantities[0] = glassQuantities[2];
+            glassQuantities[2] = glassQuantities[1];
+            glassQuantities[1] = tempLiq;
+        }
+        else
+        {
+            LiquidQuantity tempLiq = glassQuantities[0];
+            glassQuantities[0] = glassQuantities[1];
+            glassQuantities[1] = glassQuantities[2];
+            glassQuantities[2] = tempLiq;
+        }
     }
 }

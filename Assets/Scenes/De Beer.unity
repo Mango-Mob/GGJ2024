@@ -898,6 +898,10 @@ PrefabInstance:
       propertyPath: glasses.Array.data[2]
       value: 
       objectReference: {fileID: 884610974}
+    - target: {fileID: 2401073173674636374, guid: acb5709280ec9844e92aaefdd03151a2, type: 3}
+      propertyPath: m_SkinWidth
+      value: 0.0001
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acb5709280ec9844e92aaefdd03151a2, type: 3}
 --- !u!20 &1312195443 stripped
