@@ -246,4 +246,43 @@ public static class Extentions
     {
         return chance > 100 || Random.Range(0, 99) > chance;
     }
+
+    public static float RandomGaussian(float minValue = 0.0f, float maxValue = 1.0f)
+    {
+        float u, v, S;
+
+        do
+        {
+            u = 2.0f * UnityEngine.Random.value - 1.0f;
+            v = 2.0f * UnityEngine.Random.value - 1.0f;
+            S = u * u + v * v;
+        }
+        while (S >= 1.0f);
+
+        // Standard Normal Distribution
+        float std = u * Mathf.Sqrt(-2.0f * Mathf.Log(S) / S);
+
+        // Normal Distribution centered between the min and max value
+        // and clamped following the "three-sigma rule"
+        float mean = (minValue + maxValue) / 2.0f;
+        float sigma = (maxValue - mean) / 3.0f;
+        return Mathf.Clamp(std * sigma + mean, minValue, maxValue);
+    }
+
+    public static float RandomNormalDistribution( this System.Random random, float mean = 0.0f, float std = 1.0f)
+    {
+        float x1, x2, w, y1;
+        do
+        {
+            
+            x1 = 2f * (float)random.NextDouble() - 1f;
+            x2 = 2f * (float)random.NextDouble() - 1f;
+            w = x1 * x1 + x2 * x2;
+        } while (w >= 1f);
+
+        w = Mathf.Sqrt((-2f * Mathf.Log(w)) / w);
+        y1 = x1 * w;
+
+        return (y1 * std) + mean;
+    }
 }

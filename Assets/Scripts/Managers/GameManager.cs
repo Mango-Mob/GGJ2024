@@ -10,6 +10,8 @@ public class GameManager : Singleton<GameManager>
     public bool IsInCombat = false;
     public String time_desplay;
 
+    System.Random random;
+
     public int money = 0;
     private int hours = 10; //9am to 6pm
     private float time = 0.0f;
@@ -18,12 +20,14 @@ public class GameManager : Singleton<GameManager>
     protected override void Awake()
     {
         base.Awake();
+        random = random = new System.Random((int)System.DateTime.Now.Ticks);
     }
     // Start is called before the first frame update
     void Start()
     {
         m_player = GameObject.FindGameObjectWithTag("Player");
         m_activeCamera = Camera.main;
+
     }
     private void Update()
     {
