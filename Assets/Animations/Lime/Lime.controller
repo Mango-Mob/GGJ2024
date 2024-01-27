@@ -221,7 +221,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Grape
+  m_Name: Lime
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: PlayerIsNear
@@ -391,7 +391,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: ba92564bf881ad04d8aecd0db244d937, type: 2}
+  m_Motion: {fileID: 7400000, guid: f516d5b1d2859b945926fee149730e1d, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
