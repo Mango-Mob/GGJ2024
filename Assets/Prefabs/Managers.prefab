@@ -234,6 +234,9 @@ MonoBehaviour:
   - {fileID: 7897463264751025449, guid: 0475f3ead6c914c4eadffeb21b4370b9, type: 3}
   spawners: []
   fruitCount: 0000000000000000000000000000000000000000
+  initial_count: 3
+  spawn_count: 1
+  fruit_spawn_time: 15
   customerDisplay:
   - {fileID: 0}
   - {fileID: 0}

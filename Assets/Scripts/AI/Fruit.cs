@@ -48,6 +48,8 @@ public class Fruit : MonoBehaviour
             chanceIdleMove = data.chanceToMoveAgain;
         }
         mainRenderer.material = healthyMaterial;
+
+        GameManager.Instance.RegisterFruit(my_type);
     }
 
     // Update is called once per frame
@@ -72,7 +74,10 @@ public class Fruit : MonoBehaviour
         {
             mainRenderer.material.Lerp(healthyMaterial, zombieMaterial, materialBlend.Evaluate(1.0f - healthTimer / data.healthTime));
             if (healthTimer < 0)
+            {
                 EnterState(AIStates.Zombie);
+                GameManager.Instance.RemoveFruit(my_type);
+            }
         }
 
         bool player_within = Vector3.Distance(player.transform.position, transform.position) < aggroRadius;

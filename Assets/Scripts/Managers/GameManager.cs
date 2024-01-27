@@ -23,8 +23,9 @@ public class GameManager : Singleton<GameManager>
 
     public int[] fruitCount = new int[(int)LiquidType.NumOfLiquid];
     public int initial_count;
-    public int min_count;
-    public int max_count;
+    public int spawn_count;
+    public float fruit_spawn_time;
+    private float fruit_spawn_delay;
 
     struct Customer
     {
@@ -40,6 +41,22 @@ public class GameManager : Singleton<GameManager>
     
     public CustomerManager[] customerDisplay;
     private Customer[] customers = new Customer[4];
+
+    private int currentCustomerCount
+    {
+        get
+        {
+            int result = 0;
+            for (int i = 0; i < customers.Length; i++)
+            {
+                if(!customers[i].isNull)
+                    result++;
+            }
+            return result;
+        } 
+    
+    }
+
     private float[] customer_delay = { 1.0f, 1.0f, 1.0f, 1.0f };
     private float spawn_delay = 4.0f;
     private int customerCount = 0;
@@ -53,13 +70,23 @@ public class GameManager : Singleton<GameManager>
         base.Awake();
         random = random = new System.Random((int)System.DateTime.Now.Ticks);
     }
+
+    public void RegisterFruit(LiquidType my_type)
+    {
+        fruitCount[(int)my_type]++;
+    }
+    public void RemoveFruit(LiquidType my_type)
+    {
+        fruitCount[(int)my_type]++;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         m_player = GameObject.FindGameObjectWithTag("Player");
         m_activeCamera = Camera.main;
-
-        if(spawners.Length > 0)
+        fruit_spawn_delay = fruit_spawn_time;
+        if (spawners.Length > 0)
         {
             for (int i = 0; i < (int)LiquidType.NumOfLiquid; i++)
             {
@@ -74,11 +101,44 @@ public class GameManager : Singleton<GameManager>
 
     private void Update()
     {
-        time += Time.deltaTime;
-        if(time >= total_time)
+        if(time < total_time)
+            time += Time.deltaTime;
+
+        if(time >= total_time && currentCustomerCount <= 0)
         {
             return;
         }
+
+        CustomerUpdate();
+
+        if (time < total_time)
+            FruitSpawn();
+
+        time_desplay = GetTimeNow();
+    }
+
+    private void FruitSpawn()
+    {
+        if(fruit_spawn_delay > 0)
+        {
+            fruit_spawn_delay -= Time.deltaTime;
+            if (fruit_spawn_delay <= 0)
+            {
+                fruit_spawn_delay = fruit_spawn_time;
+                for (int i = 0; i < (int)LiquidType.NumOfLiquid; i++)
+                {
+                    for (int j = 0; j < initial_count; j++)
+                    {
+                        int select = UnityEngine.Random.Range(0, spawners.Length);
+                        spawners[select].Spawn(EnemiesToSpawn[i]);
+                    }
+                }
+            }
+        }
+    }
+
+    private void CustomerUpdate()
+    {
         int spawn_customers_count = (int)customerSpawnRate.Evaluate(time) - customerCount;
 
         if (spawn_delay > 0)
@@ -89,16 +149,22 @@ public class GameManager : Singleton<GameManager>
             if (customer_delay[i] > 0)
                 customer_delay[i] -= Time.deltaTime;
 
-            if (customers[i].isNull && customer_delay[i] < 0.0f && spawn_delay < 0.0f && spawn_customers_count > 0)
+            bool can_spawn = customers[i].isNull //Spot is free
+                && customer_delay[i] < 0.0f     //delay is empty
+                && spawn_delay < 0.0f           //No other spawn has occured
+                && spawn_customers_count > 0    //There is enough to spawn
+                && time <= total_time;          //Time hasn't finished.
+
+            if (can_spawn)
             {
                 customers[i] = new Customer(CustomerData.GenerateCustomer(random), customerPatience[customerPatience.keys.Length - 1].time);
                 customerDisplay[i].UpdateCharacter(customers[i].data);
                 spawn_delay = SpawnDelay;
                 customerCount++;
             }
-            else if(!customers[i].isNull)
+            else if (!customers[i].isNull)
             {
-                if(customers[i].acceptDelay > 0)
+                if (customers[i].acceptDelay > 0)
                 {
                     customers[i].acceptDelay -= Time.deltaTime;
                     if (customers[i].acceptDelay < 0)
@@ -110,7 +176,7 @@ public class GameManager : Singleton<GameManager>
                 }
 
                 customers[i].patience -= Time.deltaTime * customerPatienceDecay.Evaluate(customers[i].data.count);
-                if(customers[i].patience < 0 )
+                if (customers[i].patience < 0)
                 {
                     money += (int)(customers[i].money_earned * 0.5f);
                     customers[i] = new Customer();
@@ -121,7 +187,6 @@ public class GameManager : Singleton<GameManager>
                     customerDisplay[i].UpdatePatience(customerPatience.Evaluate(customers[i].patience));
             }
         }
-        time_desplay = GetTimeNow();
     }
     private void OnLevelWasLoaded(int level)
     {
