@@ -481,6 +481,58 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1671491690219725316, guid: a3fe05c45dac4894a9700b6c2c94b9d8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.10600127
+      objectReference: {fileID: 0}
+    - target: {fileID: 1671491690219725316, guid: a3fe05c45dac4894a9700b6c2c94b9d8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.75855243
+      objectReference: {fileID: 0}
+    - target: {fileID: 1671491690219725316, guid: a3fe05c45dac4894a9700b6c2c94b9d8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.098243415
+      objectReference: {fileID: 0}
+    - target: {fileID: 1671491690410878521, guid: a3fe05c45dac4894a9700b6c2c94b9d8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6333544
+      objectReference: {fileID: 0}
+    - target: {fileID: 1671491690410878521, guid: a3fe05c45dac4894a9700b6c2c94b9d8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.11751058
+      objectReference: {fileID: 0}
+    - target: {fileID: 1671491690410878521, guid: a3fe05c45dac4894a9700b6c2c94b9d8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.75664526
+      objectReference: {fileID: 0}
+    - target: {fileID: 1671491690410878521, guid: a3fe05c45dac4894a9700b6c2c94b9d8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.11198847
+      objectReference: {fileID: 0}
+    - target: {fileID: 1671491690673221106, guid: a3fe05c45dac4894a9700b6c2c94b9d8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -392.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1671491691111216624, guid: a3fe05c45dac4894a9700b6c2c94b9d8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.631112
+      objectReference: {fileID: 0}
+    - target: {fileID: 1671491691644854683, guid: a3fe05c45dac4894a9700b6c2c94b9d8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6661021
+      objectReference: {fileID: 0}
+    - target: {fileID: 1671491691644854683, guid: a3fe05c45dac4894a9700b6c2c94b9d8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.10489625
+      objectReference: {fileID: 0}
+    - target: {fileID: 1671491691644854683, guid: a3fe05c45dac4894a9700b6c2c94b9d8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.729458
+      objectReference: {fileID: 0}
+    - target: {fileID: 1671491691644854683, guid: a3fe05c45dac4894a9700b6c2c94b9d8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.11487342
+      objectReference: {fileID: 0}
     - target: {fileID: 2965054913515643590, guid: a3fe05c45dac4894a9700b6c2c94b9d8, type: 3}
       propertyPath: m_Name
       value: Game Core
