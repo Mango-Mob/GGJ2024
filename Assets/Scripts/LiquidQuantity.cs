@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+public enum LiquidType : int { Apple, Orange, Mango, Lime, Grapes, NumOfLiquid};
 
 public class LiquidQuantity 
 {
-    public enum LiquidType : int { Apple, Orange, Mango, Lime, Grapes, NumOfLiquid};
 
     private float[] quantity = new float[(int)LiquidType.NumOfLiquid];
     private float current_total

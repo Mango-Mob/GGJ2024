@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Fruit : MonoBehaviour
 {
+    public LiquidType my_type;
     public FruitData data;
     public enum AIStates : int { Idle, IdleMove, Run, Zombie, NumStates };
     public AIStates state;
