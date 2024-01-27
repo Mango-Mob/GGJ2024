@@ -16,6 +16,9 @@ public class JuiceMashUI : MonoBehaviour
     }
     public void ToggleVisibility(bool _active)
     {
+        if (canvasGroup.alpha == 0.0f && _active)
+            liquidController.fill[0] = 0.0f;
+
         canvasGroup.alpha = _active ? 1.0f : 0.0f;
     }
     public void SetValue(float _value)

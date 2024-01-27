@@ -10,6 +10,7 @@ public class GameManager : Singleton<GameManager>
     public bool IsInCombat = false;
     public String time_desplay;
 
+    public int money = 0;
     private int hours = 10; //9am to 6pm
     private float time = 0.0f;
     private float total_time { get { return hours * timePerHour; } }
@@ -49,5 +50,14 @@ public class GameManager : Singleton<GameManager>
         else if (extra_hours == 12)
             return hour + "pm";
         return hour + "am";
+    }
+
+    public String GetScoreDisplay()
+    {
+        int cents = (int)(money % 100);
+        if(cents <= 10)
+            return "$" + (int)(money / 100) + ".0" + cents;
+        else
+            return "$" + (int)(money / 100) + "." + (int)(money % 100);
     }
 }
