@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Move(Vector2 _move)
     {
-        if (isDiving)
+        if (isDiving || playerAnimator.GetBool("IsTickling"))
             return;
 
         Vector3 cameraForward = playerCamera.forward;
@@ -75,16 +75,18 @@ public class PlayerMovement : MonoBehaviour
         {
             characterController.Move(model.forward * diveSpeed * Time.deltaTime);
 
-            Collider[] hitColliders = Physics.OverlapSphere(grabCenter.position, grabRadius, 6);
+            Collider[] hitColliders = Physics.OverlapSphere(grabCenter.position, grabRadius, LayerMask.GetMask("Enemy"));
             foreach (var collider in hitColliders)
             {
-                Fruit targetFruit = collider.GetComponentInChildren<Fruit>();
+                Fruit targetFruit = collider.GetComponentInParent<Fruit>();
 
                 if (targetFruit)
                 {
                     Debug.Log("Hit fruit " + targetFruit.name);
 
                     isDiving = false;
+
+                    StartCoroutine(TickleCoroutine());
 
                     // Leave coroutine
                     yield break;
@@ -96,7 +98,17 @@ public class PlayerMovement : MonoBehaviour
 
         isDiving = false;
     }
+    IEnumerator TickleCoroutine()
+    {
+        Debug.Log("Tickling...");
 
+        playerAnimator.SetBool("IsTickling", true);
+
+        //yield return new WaitForEndOfFrame();
+        yield return new WaitForSeconds(2.0f);
+
+        playerAnimator.SetBool("IsTickling", false);
+    }
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
