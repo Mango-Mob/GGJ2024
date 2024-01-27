@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 4244153473717058543}
   - component: {fileID: 7192276165717619592}
   - component: {fileID: 643177026969386664}
+  - component: {fileID: 4656335407894821117}
+  - component: {fileID: 3245994391593621478}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -49,6 +51,8 @@ MonoBehaviour:
   m_player: {fileID: 0}
   m_activeCamera: {fileID: 0}
   IsInCombat: 0
+  time_desplay: 
+  timePerHour: 18
 --- !u!114 &4244153473717058543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,6 +65,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ee8e1e0600c2c1459fd22da27f75510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCursorVisible: 1
+  cursorMode: 0
   bindHasUpdated: 1
   m_leftClick: {fileID: 0}
   m_rightClick: {fileID: 0}
@@ -124,8 +130,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_clipRanges: []
   m_backgroundMusic: []
-  m_mainPlayer: {fileID: 0}
-  m_backPlayer: {fileID: 0}
-  m_combatPlayer: {fileID: 0}
+  m_mainPlayer: {fileID: 4656335407894821117}
+  m_backPlayer: {fileID: 3245994391593621478}
   volumes: []
   m_globalPitch: 1
+--- !u!114 &4656335407894821117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 83942764246345675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8322d6a446375a440a64ab9977c024ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localVolume: 1
+  isMuted: 0
+  is3D: 0
+  min3D_Dist: 1
+  max3D_Dist: 500
+  audioClips: []
+  isShuffled: 0
+  isPlayingOnAwake: 0
+  isLoopingQueue: 0
+  hasFadeTransitions: 0
+  fadeTime: 5
+  currentlyPlaying: {fileID: 0}
+--- !u!114 &3245994391593621478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 83942764246345675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8322d6a446375a440a64ab9977c024ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localVolume: 1
+  isMuted: 0
+  is3D: 0
+  min3D_Dist: 1
+  max3D_Dist: 500
+  audioClips: []
+  isShuffled: 0
+  isPlayingOnAwake: 0
+  isLoopingQueue: 0
+  hasFadeTransitions: 0
+  fadeTime: 5
+  currentlyPlaying: {fileID: 0}
