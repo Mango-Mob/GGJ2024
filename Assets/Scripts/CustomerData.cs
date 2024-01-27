@@ -13,9 +13,9 @@ public class CustomerData : ScriptableObject
     public float glassesRevelTime = 2.0f;
 
     const float glassQuantMean = 1.25f;
-    const float glassQuantSD = 1.25f;
-    const float glassFlavourMean = 1.65f;
-    const float glassFlavourSD = 0.75f;
+    const float glassQuantSD = 1f;
+    const float glassFlavourMean = 1.55f;
+    const float glassFlavourSD = 0.65f;
     public int count { get 
         {
             int size = 0;
