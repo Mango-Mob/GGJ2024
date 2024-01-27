@@ -10,9 +10,20 @@ public class PlayerController : MonoBehaviour
     private Vector2 currentMove;
     private Vector2 moveVelocity;
 
+    public LiquidQuantity[] glassQuantities = new LiquidQuantity[3]; 
+
+    [Header("UI")]
+    [SerializeField] private LiquidProgressControllerUI[] glasses;
+    public JuiceMashUI juiceMashUI;
+
     private void Awake()
     {
         playerMovement = GetComponent<PlayerMovement>();
+
+        for (int i = 0; i < 3; i++)
+        {
+            glassQuantities[i] = new LiquidQuantity();
+        }
     }
 
     // Start is called before the first frame update
@@ -24,6 +35,12 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Update glasses
+        for (int i = 0; i < 3; i++)
+        {
+            glasses[i].SetValues(glassQuantities[i].GetUIValues());
+        }
+
         bool gamepadMode = InputManager.Instance.isInGamepadMode;
 
         Vector2 move = Vector2.zero;
@@ -41,9 +58,31 @@ public class PlayerController : MonoBehaviour
             move.Normalize();
         }
 
+        playerMovement.playerAnimator.SetBool("IsMoving", move.magnitude > 0.0f);
+
         move = Vector2.SmoothDamp(currentMove, move, ref moveVelocity, 0.1f);
         currentMove = move;
 
         playerMovement.Move(move);
+
+        // Diving control
+        if (InputManager.Instance.IsGamepadButtonDown(ButtonType.SOUTH, 0) || InputManager.Instance.GetMouseDown(MouseButton.LEFT))
+        {
+            if (playerMovement.playerAnimator.GetBool("IsTickling"))
+            {
+                playerMovement.JuiceTarget();
+                Fruit grabbedFruit = playerMovement.GetGrabbedFruit();
+
+                if (grabbedFruit)
+                    juiceMashUI.SetJuice((int)grabbedFruit.my_type);
+                juiceMashUI.SetValue(grabbedFruit ? playerMovement.GetGrabbedFruit().juiceAmount : 0.0f);
+            }
+            else
+            {
+                playerMovement.Dive();
+            }
+        }
+
+        juiceMashUI.ToggleVisibility(playerMovement.playerAnimator.GetBool("IsTickling"));
     }
 }

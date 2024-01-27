@@ -4,20 +4,29 @@ using UnityEngine;
 
 public class Fruit : MonoBehaviour
 {
+    public LiquidType my_type;
     public FruitData data;
     public enum AIStates : int { Idle, IdleMove, Run, Zombie, NumStates };
     public AIStates state;
+    public MeshRenderer mainRenderer;
+
+    public AnimationCurve materialBlend;
+    public Material healthyMaterial;
+    public Material zombieMaterial;
 
     private float[] stateMaxTime = new float[(int)AIStates.NumStates];
     private float[] speed = new float[(int)AIStates.NumStates];
+    private float healthTimer;
     private float stateTimer = 0.0f;
-    private float stateLockTimer = 0.0f;
+    public float stateLockTimer = 0.0f;
+    public bool stateLock = false;
     private float aggroRadius = 0.0f;
-
 
     private int chanceIdleMove;
     private UnityEngine.AI.NavMeshAgent Agent;
     private GameObject player;
+
+    public float juiceAmount = 1.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -35,21 +44,36 @@ public class Fruit : MonoBehaviour
             stateMaxTime[(int)AIStates.IdleMove] = Mathf.Max(data.idleMoveTime + Random.Range(-data.idleMoveTimeDelta, data.idleMoveTimeDelta), 0.0f);
             stateMaxTime[(int)AIStates.Run] = Mathf.Max(data.runTime + Random.Range(-data.runTimeDelta, data.runTimeDelta), 0.0f);
 
+            healthTimer = data.healthTime;
             chanceIdleMove = data.chanceToMoveAgain;
         }
+        mainRenderer.material = healthyMaterial;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(stateLockTimer > 0)
+        Agent.enabled = stateLockTimer <= 0 && !stateLock;
+        if (stateLockTimer > 0)
         {
             stateLockTimer -= Time.deltaTime;
             return;
         }
+        if (stateLock)
+            return;
+
 
         if (stateMaxTime[(int)state] > 0)
             stateTimer -= Time.deltaTime;
+
+        healthTimer -= Time.deltaTime;
+
+        if (state != AIStates.Zombie)
+        {
+            mainRenderer.material.Lerp(healthyMaterial, zombieMaterial, materialBlend.Evaluate(1.0f - healthTimer / data.healthTime));
+            if (healthTimer < 0)
+                EnterState(AIStates.Zombie);
+        }
 
         bool player_within = Vector3.Distance(player.transform.position, transform.position) < aggroRadius;
 
@@ -78,6 +102,9 @@ public class Fruit : MonoBehaviour
                 }
                 break;
             case AIStates.Zombie:
+                Agent.SetDestination(player.transform.position);
+                if (healthTimer < 0)
+                    Destroy(gameObject);
                 break;
             default:
                 break;
@@ -93,6 +120,7 @@ public class Fruit : MonoBehaviour
         switch (state)
         {
             case AIStates.Idle:
+                Agent.SetDestination(transform.position);
                 break;
             case AIStates.IdleMove:
                 var dist = Agent.speed * stateTimer; //speed * time = dist
@@ -103,6 +131,9 @@ public class Fruit : MonoBehaviour
                 RunAway();
                 break;
             case AIStates.Zombie:
+                Agent.SetDestination(player.transform.position);
+                mainRenderer.material = zombieMaterial;
+                healthTimer = data.deathTime;
                 break;
             case AIStates.NumStates:
                 break;
