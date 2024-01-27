@@ -27,7 +27,6 @@ public class AudioManager : SingletonPersistent<AudioManager>
 
     public JukeboxAgent m_mainPlayer;
     public JukeboxAgent m_backPlayer;
-    public JukeboxAgent m_combatPlayer;
 
     //private array of volumes
     public float[] volumes;
@@ -59,16 +58,7 @@ public class AudioManager : SingletonPersistent<AudioManager>
 
     public void Update()
     {
-        if(GameManager.HasInstance() && GameManager.Instance.IsInCombat && !m_combatPlayer.IsPlaying())
-        {
-            m_combatPlayer.Shuffle();
-            m_combatPlayer.Play();
-        }
-        else if(GameManager.HasInstance() && !GameManager.Instance.IsInCombat && m_combatPlayer.IsPlaying())
-        {
-            m_combatPlayer.Stop();
-            m_mainPlayer.Play();
-        }
+
     }
 
     private void Start()
@@ -98,6 +88,10 @@ public class AudioManager : SingletonPersistent<AudioManager>
 
         int select = SceneManager.GetActiveScene().buildIndex;
         m_mainPlayer.audioClips.Clear();
+
+        if (m_clipRanges.Count <= 0)
+            return;
+
         for (int i = m_clipRanges[select].min; i < m_clipRanges[select].max + 1; i++)
         {
             m_mainPlayer.audioClips.Add(m_backgroundMusic[i]);
