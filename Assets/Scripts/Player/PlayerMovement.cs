@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public PlayerController playerController { private set; get; }
 
     [SerializeField] private Transform model;
     [SerializeField] private Transform playerCamera;
@@ -29,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
+        playerController = GetComponent<PlayerController>();
     }
 
     // Start is called before the first frame update
@@ -133,6 +135,10 @@ public class PlayerMovement : MonoBehaviour
         }
 
         juiceTimeStamp = Time.time;
+    }
+    public Fruit GetGrabbedFruit()
+    {
+        return grabbedFruit;
     }
     private void ReleaseGrab()
     {
