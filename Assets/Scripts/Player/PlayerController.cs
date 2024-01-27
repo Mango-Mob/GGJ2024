@@ -10,12 +10,20 @@ public class PlayerController : MonoBehaviour
     private Vector2 currentMove;
     private Vector2 moveVelocity;
 
+    public LiquidQuantity[] glassQuantities = new LiquidQuantity[3]; 
+
     [Header("UI")]
+    [SerializeField] private LiquidProgressControllerUI[] glasses;
     public JuiceMashUI juiceMashUI;
 
     private void Awake()
     {
         playerMovement = GetComponent<PlayerMovement>();
+
+        for (int i = 0; i < 3; i++)
+        {
+            glassQuantities[i] = new LiquidQuantity();
+        }
     }
 
     // Start is called before the first frame update
@@ -27,6 +35,12 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Update glasses
+        for (int i = 0; i < 3; i++)
+        {
+            glasses[i].SetValues(glassQuantities[i].GetUIValues());
+        }
+
         bool gamepadMode = InputManager.Instance.isInGamepadMode;
 
         Vector2 move = Vector2.zero;
