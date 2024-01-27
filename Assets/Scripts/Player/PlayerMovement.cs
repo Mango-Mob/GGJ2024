@@ -24,7 +24,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float fallAccel = 9.81f;
     [SerializeField] private float diveDuration = 0.5f;
     [SerializeField] private float grabRadius = 0.5f;
+    [SerializeField] private float hitDuration = 1.0f;
 
+    private float hitTimeStamp = -Mathf.Infinity;
     private CharacterController characterController;
     private bool isDiving;
 
@@ -64,6 +66,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isDiving || playerAnimator.GetBool("IsTickling"))
             return;
+
+        if (Time.time < hitTimeStamp + hitDuration)
+        {
+            // On hit logic here
+            _move *= 0.5f;
+        }
 
         Vector3 cameraForward = playerCamera.forward;
         cameraForward.y = 0.0f;
@@ -182,6 +190,16 @@ public class PlayerMovement : MonoBehaviour
 
         ReleaseGrab();
     }
+    public void Hit()
+    {
+        hitTimeStamp = Time.time;
+
+        playerAnimator.Play("GetHit");
+
+        playerAnimator.SetBool("IsTickling", false);
+        ReleaseGrab();
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
