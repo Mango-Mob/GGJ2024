@@ -5,6 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "FruitData", menuName = "Data/FruitData", order = 1)]
 public class FruitData : ScriptableObject
 {
+    [Header("Health")]
+    public float healthTime;
+    public float deathTime;
+
     [Header("Aggro")]
     public float aggroRadius;
     public float aggroDelta;
