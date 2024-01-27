@@ -41,9 +41,17 @@ public class PlayerController : MonoBehaviour
             move.Normalize();
         }
 
+        playerMovement.playerAnimator.SetBool("IsMoving", move.magnitude > 0.0f);
+
         move = Vector2.SmoothDamp(currentMove, move, ref moveVelocity, 0.1f);
         currentMove = move;
 
         playerMovement.Move(move);
+
+        // Diving control
+        if (!playerMovement.playerAnimator.GetBool("IsTickling") && (InputManager.Instance.IsGamepadButtonDown(ButtonType.SOUTH, 0) || InputManager.Instance.IsKeyDown(KeyType.SPACE)))
+        {
+            playerMovement.Dive();
+        }
     }
 }
