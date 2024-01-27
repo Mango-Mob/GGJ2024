@@ -201,6 +201,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1373710700608666907}
   - component: {fileID: 3858296313546009756}
+  - component: {fileID: 1293817081898462885}
   m_Layer: 6
   m_Name: Model
   m_TagString: Untagged
@@ -243,6 +244,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!136 &1293817081898462885
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5560014354631568474}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.4
+  m_Height: 1.5
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.2, z: 0}
 --- !u!1 &7559807807822401273
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,7 +307,6 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 24ee65ca51e9dfa4781a602c209ca762, type: 2}
   state: 0
   mainRenderer: {fileID: 5149697441571661750}
-  animatior: {fileID: 3858296313546009756}
   materialBlend:
     serializedVersion: 2
     m_Curve:
