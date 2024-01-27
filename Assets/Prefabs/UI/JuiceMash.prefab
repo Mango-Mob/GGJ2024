@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 7f655fa4ed5d0ec4193f5014ad9d927c, type: 2}
+  m_Material: {fileID: 2100000, guid: 19330d79dec5b834fb7fd449be7480d3, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5752c4140e13ff04fa1ecea96afcb3da, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -844,3 +844,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   splashParticles: {fileID: 0}
   liquidController: {fileID: 4328824969201479508}
+  sprites:
+  - {fileID: 21300000, guid: 5752c4140e13ff04fa1ecea96afcb3da, type: 3}
+  - {fileID: 21300000, guid: b086c462d94242446821669d1d803352, type: 3}
+  - {fileID: 21300000, guid: 6923aa26a289c2b4c8e6eaf1966040b8, type: 3}
+  - {fileID: 21300000, guid: ea1e452dc9e7bfc4584309c493d2fd01, type: 3}
+  - {fileID: 21300000, guid: 29ca8c8f9821e064d8c6bd93a4ccc242, type: 3}
+  materialColors:
+  - {r: 1, g: 0.14509805, b: 0.14509805, a: 1}
+  - {r: 1, g: 0.57254905, b: 0.21176471, a: 1}
+  - {r: 1, g: 0.84705883, b: 0, a: 1}
+  - {r: 0, g: 1, b: 0.050980393, a: 1}
+  - {r: 0.5921569, g: 0.039215688, b: 0.65882355, a: 1}
