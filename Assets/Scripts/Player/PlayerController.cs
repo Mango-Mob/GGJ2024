@@ -49,9 +49,16 @@ public class PlayerController : MonoBehaviour
         playerMovement.Move(move);
 
         // Diving control
-        if (InputManager.Instance.IsGamepadButtonDown(ButtonType.SOUTH, 0) || InputManager.Instance.IsKeyDown(KeyType.SPACE))
+        if (InputManager.Instance.IsGamepadButtonDown(ButtonType.SOUTH, 0) || InputManager.Instance.GetMouseDown(MouseButton.LEFT))
         {
-            playerMovement.Dive();
+            if (playerMovement.playerAnimator.GetBool("IsTickling"))
+            {
+                playerMovement.JuiceTarget();
+            }
+            else
+            {
+                playerMovement.Dive();
+            }
         }
     }
 }
