@@ -99,6 +99,9 @@ public class PlayerMovement : MonoBehaviour
                     grabbedFruit = targetFruit;
                     grabbedFruit.stateLock = true;
 
+                    playerController.juiceMashUI.SetJuice((int)grabbedFruit.my_type);
+                    playerController.juiceMashUI.SetValue(grabbedFruit.juiceAmount);
+
                     StartCoroutine(TickleCoroutine());
 
                     // Leave coroutine
