@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public PlayerController playerController { private set; get; }
 
     [SerializeField] private Transform model;
     [SerializeField] private Transform playerCamera;
     [SerializeField] private Transform grabCenter;
     [SerializeField] private Transform grabSocket; // Socket Enemies get attached to while grabbed
+    
     public Animator playerAnimator;
+
+    private Fruit grabbedFruit;
+    private Vector3 grabVelocity;
+    private float grabSmooth = 0.1f;
 
     [Header("Stats")]
     [SerializeField] private float moveSpeed = 5.0f;
@@ -24,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
+        playerController = GetComponent<PlayerController>();
     }
 
     // Start is called before the first frame update
@@ -35,7 +42,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (grabbedFruit)
+        {
+            grabbedFruit.transform.position = Vector3.SmoothDamp(grabbedFruit.transform.position, grabSocket.position, ref grabVelocity, grabSmooth);
+        }
     }
     public void Move(Vector2 _move)
     {
@@ -80,11 +90,14 @@ public class PlayerMovement : MonoBehaviour
             {
                 Fruit targetFruit = collider.GetComponentInParent<Fruit>();
 
-                if (targetFruit)
+                if (targetFruit && targetFruit.juiceAmount > 0.0f)
                 {
                     Debug.Log("Hit fruit " + targetFruit.name);
 
                     isDiving = false;
+
+                    grabbedFruit = targetFruit;
+                    grabbedFruit.stateLock = true;
 
                     StartCoroutine(TickleCoroutine());
 
@@ -98,16 +111,57 @@ public class PlayerMovement : MonoBehaviour
 
         isDiving = false;
     }
+
+
+    // Tickling stats
+    [Header("Tickling")]
+    [SerializeField] private float juiceRate = 0.1f; 
+    [SerializeField] private float stopJuiceTime = 0.5f; 
+    private float juiceTimeStamp;
+    private float tempJuice;
+
+    public void JuiceTarget()
+    {
+        if (!grabbedFruit)
+            return;
+
+        grabbedFruit.juiceAmount -= juiceRate;
+        tempJuice += juiceRate;
+
+        if (grabbedFruit.juiceAmount <= 0.0f)
+        {
+            // Release grabbed fruit
+            ReleaseGrab();
+        }
+
+        juiceTimeStamp = Time.time;
+    }
+    public Fruit GetGrabbedFruit()
+    {
+        return grabbedFruit;
+    }
+    private void ReleaseGrab()
+    {
+        if (grabbedFruit)
+        {
+            grabbedFruit.stateLock = false;
+            grabbedFruit = null;
+        }
+    }
     IEnumerator TickleCoroutine()
     {
         Debug.Log("Tickling...");
 
         playerAnimator.SetBool("IsTickling", true);
 
+        juiceTimeStamp = Time.time;
+
         //yield return new WaitForEndOfFrame();
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitUntil(() => { return Time.time > juiceTimeStamp + stopJuiceTime || grabbedFruit == null; });
 
         playerAnimator.SetBool("IsTickling", false);
+
+        ReleaseGrab();
     }
     private void OnDrawGizmos()
     {

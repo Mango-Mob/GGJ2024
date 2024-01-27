@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Fruit : MonoBehaviour
 {
+    public LiquidType my_type;
     public FruitData data;
     public enum AIStates : int { Idle, IdleMove, Run, Zombie, NumStates };
     public AIStates state;
@@ -18,11 +19,14 @@ public class Fruit : MonoBehaviour
     private float healthTimer;
     private float stateTimer = 0.0f;
     public float stateLockTimer = 0.0f;
+    public bool stateLock = false;
     private float aggroRadius = 0.0f;
 
     private int chanceIdleMove;
     private UnityEngine.AI.NavMeshAgent Agent;
     private GameObject player;
+
+    public float juiceAmount = 1.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -49,12 +53,15 @@ public class Fruit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Agent.enabled = stateLockTimer > 0;
+        Agent.enabled = stateLockTimer <= 0 && !stateLock;
         if (stateLockTimer > 0)
         {
             stateLockTimer -= Time.deltaTime;
             return;
         }
+        if (stateLock)
+            return;
+
 
         if (stateMaxTime[(int)state] > 0)
             stateTimer -= Time.deltaTime;

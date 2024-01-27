@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 706558596}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.638}
+  m_LocalPosition: {x: 0, y: -0.75, z: 0.838}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2401073171785013396}
@@ -87,7 +87,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2401073171804053027}
-  m_LocalRotation: {x: 0.10600129, y: -0.7585524, z: 0.09824342, w: 0.6353819}
+  m_LocalRotation: {x: 0.10600129, y: -0.7585524, z: 0.09824342, w: 0.63538194}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -913,7 +913,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 119
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -949,7 +949,8 @@ MonoBehaviour:
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
-  m_Cameras: []
+  m_Cameras:
+  - {fileID: 0}
   m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2
@@ -1064,6 +1065,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52a32fcdb85c3c34bbd9373cba0f8940, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  juiceMashUI: {fileID: 0}
 --- !u!114 &2401073173674636372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1086,6 +1088,8 @@ MonoBehaviour:
   diveSpeed: 10
   diveDuration: 0.5
   grabRadius: 0.5
+  juiceRate: 0.1
+  stopJuiceTime: 1
 --- !u!1 &8786524479820356301
 GameObject:
   m_ObjectHideFlags: 0
@@ -1110,7 +1114,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8786524479820356301}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.855}
+  m_LocalPosition: {x: 0, y: 0, z: 0.549}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2401073171785013396}

@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
     private Vector2 currentMove;
     private Vector2 moveVelocity;
 
+    [Header("UI")]
+    public JuiceMashUI juiceMashUI;
+
     private void Awake()
     {
         playerMovement = GetComponent<PlayerMovement>();
@@ -49,9 +52,19 @@ public class PlayerController : MonoBehaviour
         playerMovement.Move(move);
 
         // Diving control
-        if (!playerMovement.playerAnimator.GetBool("IsTickling") && (InputManager.Instance.IsGamepadButtonDown(ButtonType.SOUTH, 0) || InputManager.Instance.IsKeyDown(KeyType.SPACE)))
+        if (InputManager.Instance.IsGamepadButtonDown(ButtonType.SOUTH, 0) || InputManager.Instance.GetMouseDown(MouseButton.LEFT))
         {
-            playerMovement.Dive();
+            if (playerMovement.playerAnimator.GetBool("IsTickling"))
+            {
+                playerMovement.JuiceTarget();
+                juiceMashUI.SetValue(playerMovement.GetGrabbedFruit() ? playerMovement.GetGrabbedFruit().juiceAmount : 0.0f);
+            }
+            else
+            {
+                playerMovement.Dive();
+            }
         }
+
+        juiceMashUI.ToggleVisibility(playerMovement.playerAnimator.GetBool("IsTickling"));
     }
 }
