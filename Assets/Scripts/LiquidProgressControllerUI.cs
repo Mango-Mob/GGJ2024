@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class LiquidProgressControllerUI : MonoBehaviour
 {
-    public CanvasRenderer LiquidRenderer;
-    public float AccumulatedTime;
-    public float DelayCoef = 0.5f;
+    public CanvasRenderer[] LiquidRenderer;
+    [Range(0.0f, 1.0f)]
+    public float[] fill;
 
     // Update is called once per frame
     void Update()
     {
-        AccumulatedTime += Time.deltaTime * DelayCoef;
-        if (LiquidRenderer.GetMaterial() != null)
+        for (int i = 0; i < LiquidRenderer.Length; i++)
         {
-            LiquidRenderer.GetMaterial().SetFloat("_Progress", Mathf.Abs(Mathf.Sin(AccumulatedTime)));
+            if (LiquidRenderer[i].GetMaterial() != null)
+            {
+                LiquidRenderer[i].GetMaterial().SetFloat("_Progress", fill[i]);
+            }
         }
     }
 }
