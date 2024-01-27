@@ -8,7 +8,8 @@ public class Fruit : MonoBehaviour
     public FruitData data;
     public enum AIStates : int { Idle, IdleMove, Run, Zombie, NumStates };
     public AIStates state;
-    public MeshRenderer mainRenderer;
+    public Renderer mainRenderer;
+    public Animator animatior;
 
     public AnimationCurve materialBlend;
     public Material healthyMaterial;
@@ -107,6 +108,7 @@ public class Fruit : MonoBehaviour
                 }
                 break;
             case AIStates.Zombie:
+                Agent.enabled = true;
                 Agent.SetDestination(player.transform.position);
                 if (healthTimer < 0)
                     Destroy(gameObject);
