@@ -332,6 +332,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LiquidRenderer:
   - {fileID: 7918581341788574344}
+  Liquids:
+  - {fileID: 7918581341788574345}
   fill:
   - 0
 --- !u!1 &7918581343233657176
@@ -764,7 +766,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8432300729748312829}
-  - component: {fileID: 8432300729748312830}
   m_Layer: 5
   m_Name: JuiceMash
   m_TagString: Untagged
@@ -795,17 +796,3 @@ RectTransform:
   m_AnchoredPosition: {x: -125.3, y: 142.4}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &8432300729748312830
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8432300729748312828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b98d8bbc8185b741bf67aebfd5f996c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_anchorTransform: {fileID: 0}
-  m_offset: {x: 0, y: 0, z: 0}

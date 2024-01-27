@@ -810,7 +810,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1
+      scalar: 0.5
       minScalar: 0.2
       maxCurve:
         serializedVersion: 2
@@ -5584,7 +5584,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2401073171804053025, guid: acb5709280ec9844e92aaefdd03151a2, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.6353819
+      value: 0.63538194
       objectReference: {fileID: 0}
     - target: {fileID: 2401073172222939606, guid: acb5709280ec9844e92aaefdd03151a2, type: 3}
       propertyPath: m_Name
@@ -5670,6 +5670,10 @@ PrefabInstance:
       propertyPath: m_Cameras.Array.data[0]
       value: 
       objectReference: {fileID: 1312195443}
+    - target: {fileID: 2401073173674636373, guid: acb5709280ec9844e92aaefdd03151a2, type: 3}
+      propertyPath: juiceMashUI
+      value: 
+      objectReference: {fileID: 1334150474}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acb5709280ec9844e92aaefdd03151a2, type: 3}
 --- !u!1 &1312195439
@@ -5789,11 +5793,42 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!1 &1334150472 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8432300729748312828, guid: 4a63d0f3feb84784bbc6ba978bad7867, type: 3}
+  m_PrefabInstance: {fileID: 8432300728817538996}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1334150473 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8432300729748312829, guid: 4a63d0f3feb84784bbc6ba978bad7867, type: 3}
   m_PrefabInstance: {fileID: 8432300728817538996}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1334150474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334150472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b299651afd131047ac291c4a6ac7dcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  splashParticles: {fileID: 1027740099}
+  liquidController: {fileID: 5266572229117196512}
+--- !u!225 &1334150475
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334150472}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &1495249278
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6142,6 +6177,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2013306719}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &5266572229117196512 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4328824969201479508, guid: 4a63d0f3feb84784bbc6ba978bad7867, type: 3}
+  m_PrefabInstance: {fileID: 8432300728817538996}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f129fb6f0e875745a3ba8cc3e26435b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8432300728817538996
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6237,6 +6283,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8432300729748312830, guid: 4a63d0f3feb84784bbc6ba978bad7867, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a63d0f3feb84784bbc6ba978bad7867, type: 3}
