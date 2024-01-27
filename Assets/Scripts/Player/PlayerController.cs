@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
     private Vector2 currentMove;
     private Vector2 moveVelocity;
 
+    [Header("UI")]
+    public JuiceMashUI juiceMashUI;
+
     private void Awake()
     {
         playerMovement = GetComponent<PlayerMovement>();
@@ -54,11 +57,18 @@ public class PlayerController : MonoBehaviour
             if (playerMovement.playerAnimator.GetBool("IsTickling"))
             {
                 playerMovement.JuiceTarget();
+                Fruit grabbedFruit = playerMovement.GetGrabbedFruit();
+
+                if (grabbedFruit)
+                    juiceMashUI.SetJuice((int)grabbedFruit.my_type);
+                juiceMashUI.SetValue(grabbedFruit ? playerMovement.GetGrabbedFruit().juiceAmount : 0.0f);
             }
             else
             {
                 playerMovement.Dive();
             }
         }
+
+        juiceMashUI.ToggleVisibility(playerMovement.playerAnimator.GetBool("IsTickling"));
     }
 }
