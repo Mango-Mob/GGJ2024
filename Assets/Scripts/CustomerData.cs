@@ -15,6 +15,7 @@ public class CustomerData : ScriptableObject
     const float glassQuantSD = 1.25f;
     const float glassFlavourMean = 1.65f;
     const float glassFlavourSD = 0.75f;
+    public int count { get { return quantities.Length; } }
 
     public static CustomerData GenerateCustomer( System.Random generator )
     {
@@ -27,4 +28,6 @@ public class CustomerData : ScriptableObject
 
         return data;
     }
+
+    public float[] GetLiquidUI(int i) { return quantities[i].GetUIValues(); }
 }

@@ -12,6 +12,23 @@ public class GameManager : Singleton<GameManager>
 
     System.Random random;
 
+    public AnimationCurve customerSpawnRate;
+    public AnimationCurve customerPatience;
+    
+    struct Customer
+    {
+        public Customer(CustomerData data) { this.data = data; patience = 5.0f; }
+
+        public bool isNull { get { return data == null; } }
+
+        public CustomerData data { get; private set; }
+        public float patience;
+    };
+    
+    public CustomerManager[] customerDisplay;
+    private Customer[] customers = new Customer[4];
+
+    private int customerCount = 0;
     public int money = 0;
     private int hours = 10; //9am to 6pm
     private float time = 0.0f;
@@ -34,7 +51,22 @@ public class GameManager : Singleton<GameManager>
         time += Time.deltaTime;
         if(time >= total_time)
         {
+            return;
+        }
+        int spawn_customers_count = (int)customerSpawnRate.Evaluate(time) - customerCount;
 
+        for (int i = 0; i < customers.Length; i++)
+        {
+            if(customers[i].isNull && spawn_customers_count > 0)
+            {
+                customers[i] = new Customer(CustomerData.GenerateCustomer(random));
+                customerDisplay[i].UpdateCharacter(customers[i].data);
+            }
+            else
+            {
+                customers[i].patience -= Time.deltaTime;
+                customerDisplay[i].UpdatePatience(customerPatience.Evaluate(customers[i].patience));
+            }
         }
         time_desplay = GetTimeNow();
     }
