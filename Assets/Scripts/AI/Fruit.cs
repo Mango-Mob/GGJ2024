@@ -17,7 +17,7 @@ public class Fruit : MonoBehaviour
     private float[] speed = new float[(int)AIStates.NumStates];
     private float healthTimer;
     private float stateTimer = 0.0f;
-    private float stateLockTimer = 0.0f;
+    public float stateLockTimer = 0.0f;
     private float aggroRadius = 0.0f;
 
     private int chanceIdleMove;

@@ -330,6 +330,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f129fb6f0e875745a3ba8cc3e26435b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LiquidRenderer: {fileID: 9097124580907541503}
-  AccumulatedTime: 0
-  DelayCoef: 0.5
+  LiquidRenderer:
+  - {fileID: 9097124580907541503}
+  - {fileID: 0}
+  fill:
+  - 0
+  - 0
