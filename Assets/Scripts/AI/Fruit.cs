@@ -49,7 +49,8 @@ public class Fruit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(stateLockTimer > 0)
+        Agent.enabled = stateLockTimer > 0;
+        if (stateLockTimer > 0)
         {
             stateLockTimer -= Time.deltaTime;
             return;
@@ -112,6 +113,7 @@ public class Fruit : MonoBehaviour
         switch (state)
         {
             case AIStates.Idle:
+                Agent.SetDestination(transform.position);
                 break;
             case AIStates.IdleMove:
                 var dist = Agent.speed * stateTimer; //speed * time = dist
