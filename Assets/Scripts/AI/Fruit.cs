@@ -9,7 +9,7 @@ public class Fruit : MonoBehaviour
     public enum AIStates : int { Idle, IdleMove, Run, Zombie, NumStates };
     public AIStates state;
     public Renderer mainRenderer;
-    public Animator animatior;
+    
 
     public AnimationCurve materialBlend;
     public Material healthyMaterial;
@@ -24,6 +24,7 @@ public class Fruit : MonoBehaviour
     private float aggroRadius = 0.0f;
 
     private int chanceIdleMove;
+    private Animator animatior;
     private UnityEngine.AI.NavMeshAgent Agent;
     private GameObject player;
 
@@ -34,6 +35,7 @@ public class Fruit : MonoBehaviour
     {
         Agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
+        animatior = GetComponentInChildren<Animator>();
         if (data)
         {
             aggroRadius = data.aggroRadius + Random.Range(-data.aggroDelta, data.aggroDelta);
@@ -56,6 +58,7 @@ public class Fruit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        animatior.SetBool("IsTickled", stateLock);
         Agent.enabled = stateLockTimer <= 0 && !stateLock;
         if (stateLockTimer > 0)
         {
@@ -64,7 +67,6 @@ public class Fruit : MonoBehaviour
         }
         if (stateLock)
             return;
-
 
         if (stateMaxTime[(int)state] > 0)
             stateTimer -= Time.deltaTime;
@@ -82,7 +84,8 @@ public class Fruit : MonoBehaviour
         }
 
         bool player_within = Vector3.Distance(player.transform.position, transform.position) < aggroRadius;
-
+        animatior.SetBool("PlayerIsNear", player_within);
+        animatior.SetBool("IsMoving", state != AIStates.Idle );
         switch (state)
         {
             case AIStates.Idle:
@@ -138,6 +141,7 @@ public class Fruit : MonoBehaviour
                 RunAway();
                 break;
             case AIStates.Zombie:
+                animatior.SetBool("IsZombie", true);
                 Agent.SetDestination(player.transform.position);
                 mainRenderer.material = zombieMaterial;
                 healthTimer = data.deathTime;
