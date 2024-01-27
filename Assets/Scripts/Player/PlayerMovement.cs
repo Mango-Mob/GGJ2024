@@ -99,6 +99,9 @@ public class PlayerMovement : MonoBehaviour
                     grabbedFruit = targetFruit;
                     grabbedFruit.stateLock = true;
 
+                    playerController.juiceMashUI.SetJuice((int)grabbedFruit.my_type);
+                    playerController.juiceMashUI.SetValue(grabbedFruit.juiceAmount);
+
                     StartCoroutine(TickleCoroutine());
 
                     // Leave coroutine
@@ -118,7 +121,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float juiceRate = 0.1f; 
     [SerializeField] private float stopJuiceTime = 0.5f; 
     private float juiceTimeStamp;
-    private float tempJuice;
 
     public void JuiceTarget()
     {
@@ -126,7 +128,7 @@ public class PlayerMovement : MonoBehaviour
             return;
 
         grabbedFruit.juiceAmount -= juiceRate;
-        tempJuice += juiceRate;
+        playerController.glassQuantities[1].AddQuantity(grabbedFruit.my_type, juiceRate);
 
         if (grabbedFruit.juiceAmount <= 0.0f)
         {
