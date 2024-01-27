@@ -11,9 +11,13 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 1f350bb35ab020841a76abc5e60cd1d4, type: 2}
+    - target: {fileID: 6744288619249741337, guid: ff6742ced64f768428deae5fb2a4b602, type: 3}
+      propertyPath: my_type
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7559807807822401273, guid: ff6742ced64f768428deae5fb2a4b602, type: 3}
       propertyPath: m_Name
-      value: EnemyBase
+      value: EnemyApple
       objectReference: {fileID: 0}
     - target: {fileID: 8893378793254511103, guid: ff6742ced64f768428deae5fb2a4b602, type: 3}
       propertyPath: m_RootOrder

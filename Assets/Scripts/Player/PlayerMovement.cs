@@ -7,14 +7,16 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private Transform model;
     [SerializeField] private Transform playerCamera;
-    [SerializeField] private Animator playerAnimator;
+    [SerializeField] private Transform grabCenter;
+    [SerializeField] private Transform grabSocket; // Socket Enemies get attached to while grabbed
+    public Animator playerAnimator;
 
     [Header("Stats")]
     [SerializeField] private float moveSpeed = 5.0f;
     [SerializeField] private float rotSpeed = 5.0f;
     [SerializeField] private float diveSpeed = 10.0f;
     [SerializeField] private float diveDuration = 0.5f;
-
+    [SerializeField] private float grabRadius = 0.5f;
 
     private CharacterController characterController;
     private bool isDiving;
@@ -40,8 +42,6 @@ public class PlayerMovement : MonoBehaviour
         if (isDiving)
             return;
 
-        playerAnimator.SetBool("IsMoving", _move.magnitude > 0.0f);
-
         Vector3 cameraForward = playerCamera.forward;
         cameraForward.y = 0.0f;
         cameraForward.Normalize();
@@ -59,17 +59,47 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Dive()
     {
+        if (isDiving)
+            return;
+
         StartCoroutine(DiveCoroutine());
     }
     private IEnumerator DiveCoroutine()
     {
-        playerAnimator.Play("Dive");
+        playerAnimator.CrossFade("Dive", 0.2f);
+
+        isDiving = true;
 
         float startTime = Time.time; 
         while (Time.time < startTime + diveDuration)
         {
             characterController.Move(model.forward * diveSpeed * Time.deltaTime);
+
+            Collider[] hitColliders = Physics.OverlapSphere(grabCenter.position, grabRadius, 6);
+            foreach (var collider in hitColliders)
+            {
+                Fruit targetFruit = collider.GetComponentInChildren<Fruit>();
+
+                if (targetFruit)
+                {
+                    Debug.Log("Hit fruit " + targetFruit.name);
+
+                    isDiving = false;
+
+                    // Leave coroutine
+                    yield break;
+                }
+            }
+
             yield return new WaitForEndOfFrame(); 
         }
+
+        isDiving = false;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(grabCenter.position, grabRadius);
     }
 }

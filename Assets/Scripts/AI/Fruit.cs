@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Fruit : MonoBehaviour
 {
+    public LiquidType my_type;
     public FruitData data;
     public enum AIStates : int { Idle, IdleMove, Run, Zombie, NumStates };
     public AIStates state;
@@ -17,7 +18,7 @@ public class Fruit : MonoBehaviour
     private float[] speed = new float[(int)AIStates.NumStates];
     private float healthTimer;
     private float stateTimer = 0.0f;
-    private float stateLockTimer = 0.0f;
+    public float stateLockTimer = 0.0f;
     private float aggroRadius = 0.0f;
 
     private int chanceIdleMove;
@@ -49,7 +50,8 @@ public class Fruit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(stateLockTimer > 0)
+        Agent.enabled = stateLockTimer > 0;
+        if (stateLockTimer > 0)
         {
             stateLockTimer -= Time.deltaTime;
             return;
@@ -112,6 +114,7 @@ public class Fruit : MonoBehaviour
         switch (state)
         {
             case AIStates.Idle:
+                Agent.SetDestination(transform.position);
                 break;
             case AIStates.IdleMove:
                 var dist = Agent.speed * stateTimer; //speed * time = dist
