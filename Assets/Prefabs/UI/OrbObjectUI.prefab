@@ -332,7 +332,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LiquidRenderer:
   - {fileID: 9097124580907541503}
-  - {fileID: 0}
   fill:
-  - 0
   - 0
