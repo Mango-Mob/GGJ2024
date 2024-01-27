@@ -1,21 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LiquidProgressControllerUI : MonoBehaviour
 {
     public CanvasRenderer[] LiquidRenderer;
+    public Image[] Liquids;
+
     [Range(0.0f, 1.0f)]
     public float[] fill;
 
     // Update is called once per frame
     void Update()
     {
-        for (int i = 0; i < LiquidRenderer.Length; i++)
+        for (int i = 0; i < Liquids.Length; i++)
         {
-            if (LiquidRenderer[i].GetMaterial() != null)
+            if (Liquids[i].material != null)
             {
-                LiquidRenderer[i].GetMaterial().SetFloat("_Progress", fill[i]);
+                Material mat = new Material(Liquids[i].material);
+                mat.SetFloat("_Progress", fill[i]);
+                Liquids[i].material = mat;
             }
         }
     }
