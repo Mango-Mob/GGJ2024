@@ -106,15 +106,11 @@ public class LiquidQuantity
     {
         float[] value = new float[(int)LiquidType.NumOfLiquid];
 
-        for (int i = (int)LiquidType.NumOfLiquid - 1; i >= 0; i--)
+        float total = 0.0f;
+        for (int i = (int)LiquidType.NumOfLiquid - 1; i >= 0; i--) //0.2
         {
-            if (quantity[i] <= 0.0f)
-            {
-                for (int j = i; j < (int)LiquidType.NumOfLiquid; j++)
-                    value[i] += quantity[j];
-            }
-            else
-                value[i] = 0.0f;
+            value[i] = total + quantity[i];
+            total += quantity[i];
         }
 
         return value;
