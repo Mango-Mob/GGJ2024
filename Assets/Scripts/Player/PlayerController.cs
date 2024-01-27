@@ -145,4 +145,8 @@ public class PlayerController : MonoBehaviour
             glassQuantities[2] = tempLiq;
         }
     }
+    public void GetHit()
+    {
+        playerMovement.Hit();
+    }
 }

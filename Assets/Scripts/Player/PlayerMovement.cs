@@ -21,11 +21,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 5.0f;
     [SerializeField] private float rotSpeed = 5.0f;
     [SerializeField] private float diveSpeed = 10.0f;
+    [SerializeField] private float fallAccel = 9.81f;
     [SerializeField] private float diveDuration = 0.5f;
     [SerializeField] private float grabRadius = 0.5f;
+    [SerializeField] private float hitDuration = 1.0f;
 
+    private float hitTimeStamp = -Mathf.Infinity;
     private CharacterController characterController;
     private bool isDiving;
+
+    private float yVelocity = 0.0f;
 
     private void Awake()
     {
@@ -46,11 +51,27 @@ public class PlayerMovement : MonoBehaviour
         {
             grabbedFruit.transform.position = Vector3.SmoothDamp(grabbedFruit.transform.position, grabSocket.position, ref grabVelocity, grabSmooth);
         }
+
+        if (!characterController.isGrounded)
+        {
+            yVelocity -= fallAccel * Time.deltaTime;
+            characterController.Move(Vector3.up * yVelocity * Time.deltaTime);
+        }
+        else
+        {
+            yVelocity = 0.0f;
+        }
     }
     public void Move(Vector2 _move)
     {
         if (isDiving || playerAnimator.GetBool("IsTickling"))
             return;
+
+        if (Time.time < hitTimeStamp + hitDuration)
+        {
+            // On hit logic here
+            _move *= 0.5f;
+        }
 
         Vector3 cameraForward = playerCamera.forward;
         cameraForward.y = 0.0f;
@@ -169,6 +190,16 @@ public class PlayerMovement : MonoBehaviour
 
         ReleaseGrab();
     }
+    public void Hit()
+    {
+        hitTimeStamp = Time.time;
+
+        playerAnimator.Play("GetHit");
+
+        playerAnimator.SetBool("IsTickling", false);
+        ReleaseGrab();
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
