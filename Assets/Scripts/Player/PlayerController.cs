@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
         // Update glasses
         for (int i = 0; i < 3; i++)
         {
-            glasses[i].SetValues(glassQuantities[i].GetUIValues());
+            glasses[i].SetValues(glassQuantities[i]);
         }
 
         bool gamepadMode = InputManager.Instance.isInGamepadMode;
@@ -85,6 +85,31 @@ public class PlayerController : MonoBehaviour
         }
 
         juiceMashUI.ToggleVisibility(playerMovement.playerAnimator.GetBool("IsTickling"), playerMovement.GetGrabbedFruit() ? playerMovement.GetGrabbedFruit().juiceAmount : 0.0f);
+
+        if(GameManager.Instance.canSell && !glassQuantities[1].isEmpty)
+        {
+            if (InputManager.Instance.IsGamepadButtonDown(ButtonType.LEFT, 0) || InputManager.Instance.IsKeyDown(KeyType.ALP_ONE))
+            {
+                GameManager.Instance.SellTo( 0, glassQuantities[1]);
+                glassQuantities[1] = new LiquidQuantity();
+            }
+            else if (InputManager.Instance.IsGamepadButtonDown(ButtonType.UP, 0) || InputManager.Instance.IsKeyDown(KeyType.ALP_TWO))
+            {
+                GameManager.Instance.SellTo(1, glassQuantities[1]);
+                glassQuantities[1] = new LiquidQuantity();
+            }
+            else if (InputManager.Instance.IsGamepadButtonDown(ButtonType.DOWN, 0) || InputManager.Instance.IsKeyDown(KeyType.ALP_THREE))
+            {
+                GameManager.Instance.SellTo(2, glassQuantities[1]);
+                glassQuantities[1] = new LiquidQuantity();
+            }
+            else if (InputManager.Instance.IsGamepadButtonDown(ButtonType.RIGHT, 0) || InputManager.Instance.IsKeyDown(KeyType.ALP_FOUR))
+            {
+                GameManager.Instance.SellTo(3, glassQuantities[1]);
+                glassQuantities[1] = new LiquidQuantity();
+            }
+        }
+        
 
         // 
         if (InputManager.Instance.IsGamepadButtonDown(ButtonType.RB, 0) || InputManager.Instance.IsKeyDown(KeyType.E))

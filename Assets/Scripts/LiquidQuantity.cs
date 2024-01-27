@@ -19,7 +19,9 @@ public class LiquidQuantity
             return value;
         }
     }
+    public bool isEmpty { get { return current_total <= 0.0f; } }
     public LiquidQuantity() {}
+    public float At(int i) { return quantity[i]; }
 
     public LiquidQuantity( int number_of_flaviours )
     {

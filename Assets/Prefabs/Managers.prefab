@@ -52,7 +52,195 @@ MonoBehaviour:
   m_activeCamera: {fileID: 0}
   IsInCombat: 0
   time_desplay: 
-  timePerHour: 18
+  SpawnDelay: 0
+  MoneyPerGlass: 0
+  canSell: 0
+  customerSpawnRate:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 18
+      value: 2
+      inSlope: 0.1388889
+      outSlope: 0.1388889
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 36
+      value: 5
+      inSlope: 0.2777778
+      outSlope: 0.2777778
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 54
+      value: 12
+      inSlope: 0.22222222
+      outSlope: 0.22222222
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 72
+      value: 14
+      inSlope: 0.10357884
+      outSlope: 0.10357884
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 89.15689
+      value: 15.64151
+      inSlope: 0.09282548
+      outSlope: 0.09282548
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 107.36766
+      value: 17.28302
+      inSlope: 0.11948347
+      outSlope: 0.11948347
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 128.9508
+      value: 20.396225
+      inSlope: 0.12861198
+      outSlope: 0.12861198
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 148.0047
+      value: 22.50943
+      inSlope: 0.09077377
+      outSlope: 0.09077377
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 162
+      value: 23.396225
+      inSlope: 0.046587158
+      outSlope: 0.046587158
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 180
+      value: 24
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  customerPatience:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.014160156
+      value: 0
+      inSlope: 0.13930033
+      outSlope: 0.13930033
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.13309585
+    - serializedVersion: 3
+      time: 8
+      value: 1
+      inSlope: 0.0025939231
+      outSlope: 0.0025939231
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.6061594
+    - serializedVersion: 3
+      time: 14
+      value: 1
+      inSlope: 0.0026131426
+      outSlope: 0.0026131426
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.15042527
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  customerPatienceDecay:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: -0.25
+      outSlope: -0.25
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 2
+      value: 0.75
+      inSlope: -0.25
+      outSlope: -0.25
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 3
+      value: 0.5
+      inSlope: -0.25
+      outSlope: -0.25
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  EnemiesToSpawn:
+  - {fileID: 1160230818675452872, guid: 99b435660d69ad6499cb6f114543a850, type: 3}
+  - {fileID: 7867369642840839646, guid: 687b1a21b5c123445ad8a2d538e9350e, type: 3}
+  - {fileID: 4113466732875568501, guid: c0636d23b62531941905239880b6b64d, type: 3}
+  - {fileID: 9138571145961738835, guid: f981bb942d5f4c4409c750aca7e21cfe, type: 3}
+  - {fileID: 7897463264751025449, guid: 0475f3ead6c914c4eadffeb21b4370b9, type: 3}
+  spawners: []
+  fruitCount: 0000000000000000000000000000000000000000
+  customerDisplay:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  money: 500
+  timePerHour: 16
 --- !u!114 &4244153473717058543
 MonoBehaviour:
   m_ObjectHideFlags: 0
