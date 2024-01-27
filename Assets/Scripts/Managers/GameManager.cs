@@ -199,7 +199,7 @@ public class GameManager : Singleton<GameManager>
         float diff = customers[index].data.RemoveBestCase(fluid);
         customers[index].money_earned += (int)(diff * MoneyPerGlass);
         customers[index].patience = Mathf.Min(customers[index].patience + 0.5f, customerPatience[customerPatience.keys.Length - 1].time);
-        if (customers[index].data.count < 0)
+        if (customers[index].data.count <= 0)
         {
             money += (int)(customers[index].money_earned * (customerPatience.Evaluate(customers[index].patience) + 0.4f));
             customers[index] = new Customer();

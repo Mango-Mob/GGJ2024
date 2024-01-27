@@ -8,12 +8,6 @@ public class Fruit : MonoBehaviour
     public FruitData data;
     public enum AIStates : int { Idle, IdleMove, Run, Zombie, NumStates };
     public AIStates state;
-    public Renderer mainRenderer;
-    
-
-    public AnimationCurve materialBlend;
-    public Material healthyMaterial;
-    public Material zombieMaterial;
 
     private float[] stateMaxTime = new float[(int)AIStates.NumStates];
     private float[] speed = new float[(int)AIStates.NumStates];
@@ -50,7 +44,6 @@ public class Fruit : MonoBehaviour
             healthTimer = data.healthTime;
             chanceIdleMove = data.chanceToMoveAgain;
         }
-        mainRenderer.material = healthyMaterial;
 
         GameManager.Instance.RegisterFruit(my_type);
     }
@@ -71,11 +64,9 @@ public class Fruit : MonoBehaviour
         if (stateMaxTime[(int)state] > 0)
             stateTimer -= Time.deltaTime;
 
-        healthTimer -= Time.deltaTime;
 
         if (state != AIStates.Zombie)
         {
-            mainRenderer.material.Lerp(healthyMaterial, zombieMaterial, materialBlend.Evaluate(1.0f - healthTimer / data.healthTime));
             if (healthTimer < 0)
             {
                 EnterState(AIStates.Zombie);
@@ -84,6 +75,8 @@ public class Fruit : MonoBehaviour
         }
 
         bool player_within = Vector3.Distance(player.transform.position, transform.position) < aggroRadius;
+        healthTimer -= player_within && state != AIStates.Zombie ? 0.0f : Time.deltaTime;
+
         animatior.SetBool("PlayerIsNear", player_within);
         animatior.SetBool("IsMoving", state != AIStates.Idle );
         switch (state)
@@ -106,7 +99,7 @@ public class Fruit : MonoBehaviour
                 else
                 {
                     RunAway();
-                    if (stateTimer < 0)
+                    if (!player_within)
                         EnterState(AIStates.Idle, stateMaxTime[(int)AIStates.Run]);
                 }
                 break;
@@ -121,7 +114,7 @@ public class Fruit : MonoBehaviour
         }
     }
 
-    void EnterState(AIStates new_state, float state_lock_duration = 0)
+    public void EnterState(AIStates new_state, float state_lock_duration = 0)
     {
         state = new_state;
         Agent.speed = speed[(int)state];
@@ -141,9 +134,8 @@ public class Fruit : MonoBehaviour
                 RunAway();
                 break;
             case AIStates.Zombie:
-                animatior.SetBool("IsZombie", true);
-                Agent.SetDestination(player.transform.position);
-                mainRenderer.material = zombieMaterial;
+                GetComponentInChildren<Collider>().enabled = false;
+                animatior.SetBool("IsDead", true);
                 healthTimer = data.deathTime;
                 break;
             case AIStates.NumStates:
@@ -157,7 +149,7 @@ public class Fruit : MonoBehaviour
     {
         Vector3 direct = (transform.position - player.transform.position).normalized;
 
-        Agent.SetDestination(transform.position + direct * Agent.speed);
+        Agent.SetDestination(transform.position + (direct * Agent.speed * 1.5f));
     }
 
     private void OnDrawGizmosSelected()

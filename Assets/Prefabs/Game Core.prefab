@@ -726,6 +726,14 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 854743720838932013, guid: bcbe502a625da5141a2d41456ee544cc, type: 3}
+      propertyPath: initial_count
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 854743720838932013, guid: bcbe502a625da5141a2d41456ee544cc, type: 3}
+      propertyPath: fruit_spawn_time
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 854743720838932013, guid: bcbe502a625da5141a2d41456ee544cc, type: 3}
       propertyPath: customerDisplay.Array.data[0]
       value: 
       objectReference: {fileID: 913350904854243830}

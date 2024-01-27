@@ -53,7 +53,7 @@ MonoBehaviour:
   IsInCombat: 0
   time_desplay: 
   SpawnDelay: 0
-  MoneyPerGlass: 0
+  MoneyPerGlass: 500
   canSell: 0
   customerSpawnRate:
     serializedVersion: 2
@@ -242,7 +242,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  money: 500
+  money: 0
   timePerHour: 16
 --- !u!114 &4244153473717058543
 MonoBehaviour:
@@ -257,7 +257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCursorVisible: 1
-  cursorMode: 0
+  cursorMode: 1
   bindHasUpdated: 1
   m_leftClick: {fileID: 0}
   m_rightClick: {fileID: 0}
