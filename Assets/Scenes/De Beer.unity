@@ -1077,6 +1077,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4065730104461250807, guid: d4cb461dfefd67d46814f5e6e4110ee8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4065730105696486177, guid: d4cb461dfefd67d46814f5e6e4110ee8, type: 3}
       propertyPath: m_Name
       value: ParticleUI
@@ -1087,15 +1091,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4065730105696486178, guid: d4cb461dfefd67d46814f5e6e4110ee8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 20.912493
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4065730105696486178, guid: d4cb461dfefd67d46814f5e6e4110ee8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.8506305
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4065730105696486178, guid: d4cb461dfefd67d46814f5e6e4110ee8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -13.764801
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4065730105696486178, guid: d4cb461dfefd67d46814f5e6e4110ee8, type: 3}
       propertyPath: m_LocalRotation.w
