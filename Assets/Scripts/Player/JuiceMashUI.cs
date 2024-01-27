@@ -19,19 +19,21 @@ public class JuiceMashUI : MonoBehaviour
     {
         canvasGroup = GetComponent<CanvasGroup>();
     }
-    public void ToggleVisibility(bool _active)
+    public void ToggleVisibility(bool _active, float _value = 1.0f)
     {
         if (canvasGroup.alpha == 0.0f && _active)
-            liquidController.fill[0] = 1.0f;
+            liquidController.fill[0] = _value;
 
         canvasGroup.alpha = _active ? 1.0f : 0.0f;
     }
-    public void SetValue(float _value)
+    public void SetValue(float _value, bool _silent = false)
     {
         value = _value;
 
         liquidController.fill[0] = _value;
-        splashParticles.Play();
+
+        if (!_silent)
+            splashParticles.Play();
     }
     public void SetJuice(int _index)
     {

@@ -63,6 +63,7 @@ public class PlayerController : MonoBehaviour
         move = Vector2.SmoothDamp(currentMove, move, ref moveVelocity, 0.1f);
         currentMove = move;
 
+        playerMovement.playerAnimator.SetFloat("RunSpeed", move.magnitude);
         playerMovement.Move(move);
 
         // Diving control
@@ -83,6 +84,40 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        juiceMashUI.ToggleVisibility(playerMovement.playerAnimator.GetBool("IsTickling"));
+        juiceMashUI.ToggleVisibility(playerMovement.playerAnimator.GetBool("IsTickling"), playerMovement.GetGrabbedFruit() ? playerMovement.GetGrabbedFruit().juiceAmount : 0.0f);
+
+        // 
+        if (InputManager.Instance.IsGamepadButtonDown(ButtonType.RB, 0) || InputManager.Instance.IsKeyDown(KeyType.E))
+        {
+            ChangeGlass(true);
+        }
+        if (InputManager.Instance.IsGamepadButtonDown(ButtonType.LB, 0) || InputManager.Instance.IsKeyDown(KeyType.Q))
+        {
+            ChangeGlass(false);
+        }
+
+        // Dump glass
+        if (InputManager.Instance.IsGamepadButtonDown(ButtonType.NORTH, 0) || InputManager.Instance.IsKeyDown(KeyType.F))
+        {
+            glassQuantities[1] = new LiquidQuantity();
+        }
+    }
+
+    public void ChangeGlass(bool _forward)
+    {
+        if (_forward)
+        {
+            LiquidQuantity tempLiq = glassQuantities[0];
+            glassQuantities[0] = glassQuantities[2];
+            glassQuantities[2] = glassQuantities[1];
+            glassQuantities[1] = tempLiq;
+        }
+        else
+        {
+            LiquidQuantity tempLiq = glassQuantities[0];
+            glassQuantities[0] = glassQuantities[1];
+            glassQuantities[1] = glassQuantities[2];
+            glassQuantities[2] = tempLiq;
+        }
     }
 }
