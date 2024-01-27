@@ -85,6 +85,7 @@ public class PlayerController : MonoBehaviour
 
         juiceMashUI.ToggleVisibility(playerMovement.playerAnimator.GetBool("IsTickling"), playerMovement.GetGrabbedFruit() ? playerMovement.GetGrabbedFruit().juiceAmount : 0.0f);
 
+        // 
         if (InputManager.Instance.IsGamepadButtonDown(ButtonType.RB, 0) || InputManager.Instance.IsKeyDown(KeyType.E))
         {
             ChangeGlass(true);
@@ -92,6 +93,12 @@ public class PlayerController : MonoBehaviour
         if (InputManager.Instance.IsGamepadButtonDown(ButtonType.LB, 0) || InputManager.Instance.IsKeyDown(KeyType.Q))
         {
             ChangeGlass(false);
+        }
+
+        // Dump glass
+        if (InputManager.Instance.IsGamepadButtonDown(ButtonType.NORTH, 0) || InputManager.Instance.IsKeyDown(KeyType.F))
+        {
+            glassQuantities[1] = new LiquidQuantity();
         }
     }
 
