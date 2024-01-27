@@ -21,11 +21,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 5.0f;
     [SerializeField] private float rotSpeed = 5.0f;
     [SerializeField] private float diveSpeed = 10.0f;
+    [SerializeField] private float fallAccel = 9.81f;
     [SerializeField] private float diveDuration = 0.5f;
     [SerializeField] private float grabRadius = 0.5f;
 
     private CharacterController characterController;
     private bool isDiving;
+
+    private float yVelocity = 0.0f;
 
     private void Awake()
     {
@@ -45,6 +48,16 @@ public class PlayerMovement : MonoBehaviour
         if (grabbedFruit)
         {
             grabbedFruit.transform.position = Vector3.SmoothDamp(grabbedFruit.transform.position, grabSocket.position, ref grabVelocity, grabSmooth);
+        }
+
+        if (!characterController.isGrounded)
+        {
+            yVelocity -= fallAccel * Time.deltaTime;
+            characterController.Move(Vector3.up * yVelocity * Time.deltaTime);
+        }
+        else
+        {
+            yVelocity = 0.0f;
         }
     }
     public void Move(Vector2 _move)
