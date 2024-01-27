@@ -76,9 +76,11 @@ public class PlayerMovement : MonoBehaviour
     }
     private IEnumerator DiveCoroutine()
     {
-        playerAnimator.CrossFade("Dive", 0.2f);
+        playerAnimator.CrossFade("Dive", 0.05f);
 
         isDiving = true;
+
+        yield return new WaitForSeconds(0.367f);
 
         float startTime = Time.time; 
         while (Time.time < startTime + diveDuration)
@@ -111,6 +113,8 @@ public class PlayerMovement : MonoBehaviour
 
             yield return new WaitForEndOfFrame(); 
         }
+
+        yield return new WaitForSeconds(0.633f);
 
         isDiving = false;
     }

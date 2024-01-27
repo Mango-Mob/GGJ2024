@@ -63,6 +63,7 @@ public class PlayerController : MonoBehaviour
         move = Vector2.SmoothDamp(currentMove, move, ref moveVelocity, 0.1f);
         currentMove = move;
 
+        playerMovement.playerAnimator.SetFloat("RunSpeed", move.magnitude);
         playerMovement.Move(move);
 
         // Diving control
