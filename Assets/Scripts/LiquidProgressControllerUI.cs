@@ -24,4 +24,12 @@ public class LiquidProgressControllerUI : MonoBehaviour
             }
         }
     }
+
+    public void SetValues( float[] values)
+    {
+        for (int i = 0; i < fill.Length; i++)
+        {
+            fill[i] = values[i];
+        }
+    }
 }
