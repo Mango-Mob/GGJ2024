@@ -108,8 +108,6 @@ public class Fruit : MonoBehaviour
                     RunAway();
                 break;
             case AIStates.Zombie:
-                Agent.enabled = true;
-                Agent.SetDestination(player.transform.position);
                 if (healthTimer < 0)
                 {
                     Instantiate(spawn_vfx, transform.position + new Vector3(0, 1,0), Quaternion.Euler(0, Random.Range(0, 360), 0));
@@ -138,7 +136,6 @@ public class Fruit : MonoBehaviour
                 UnityEngine.AI.NavMeshPath path = new UnityEngine.AI.NavMeshPath();
                 Agent.CalculatePath(transform.position + new Vector3(forward_vec2.x, 0.0f, forward_vec2.y), path);
                 Agent.SetPath(path);
-                Agent.SetDestination(transform.position + new Vector3(forward_vec2.x, 0.0f, forward_vec2.y));
                 break;
             case AIStates.Run:
                 RunAway();
