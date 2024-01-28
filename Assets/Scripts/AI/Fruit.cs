@@ -8,6 +8,7 @@ public class Fruit : MonoBehaviour
     public FruitData data;
     public enum AIStates : int { Idle, IdleMove, Run, Zombie, NumStates };
     public AIStates state;
+    public GameObject spawn_vfx;
 
     private float[] stateMaxTime = new float[(int)AIStates.NumStates];
     private float[] speed = new float[(int)AIStates.NumStates];
@@ -104,17 +105,17 @@ public class Fruit : MonoBehaviour
                 if (!player_within)
                     EnterState(AIStates.Idle);
                 else
-                {
                     RunAway();
-                    if (!player_within)
-                        EnterState(AIStates.Idle, stateMaxTime[(int)AIStates.Run]);
-                }
                 break;
             case AIStates.Zombie:
                 Agent.enabled = true;
                 Agent.SetDestination(player.transform.position);
+                Agent
                 if (healthTimer < 0)
+                {
+                    Instantiate(spawn_vfx, transform.position + new Vector3(0, 1,0), Quaternion.Euler(0, Random.Range(0, 360), 0));
                     Destroy(gameObject);
+                }
                 break;
             default:
                 break;
@@ -155,8 +156,9 @@ public class Fruit : MonoBehaviour
     private void RunAway()
     {
         Vector3 direct = (transform.position - player.transform.position).normalized;
-
-        Agent.SetDestination(transform.position + (direct * Agent.speed * 1.5f));
+        UnityEngine.AI.NavMeshPath path = new UnityEngine.AI.NavMeshPath() ;
+        Agent.CalculatePath(transform.position + (direct * Agent.speed * 1.5f), path);
+        Agent.SetPath(path);
     }
 
     private void OnDrawGizmosSelected()

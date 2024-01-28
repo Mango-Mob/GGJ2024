@@ -41,9 +41,9 @@ public class CustomerData : ScriptableObject
 
     public LiquidQuantity GetLiquid(int i) { return quantities[i]; }
 
-    public float RemoveBestCase(LiquidQuantity other)
+    public (float, int) RemoveBestCase(LiquidQuantity other)
     {
-        float best_diff = 0.0f;
+        float best_diff = -1.0f;
         int index = -1;
         for (int i = 0; i < quantities.Length; i++)
         {
@@ -59,6 +59,6 @@ public class CustomerData : ScriptableObject
         }
 
         quantities[index] = null;
-        return best_diff;
+        return (best_diff, index);
     }
 }

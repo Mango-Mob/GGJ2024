@@ -59,7 +59,7 @@ public class GameManager : Singleton<GameManager>
     }
 
     private float[] customer_delay = { 1.0f, 1.0f, 1.0f, 1.0f };
-    private float spawn_delay = 4.0f;
+    private float spawn_delay = 2.0f;
     private int customerCount = 0;
     public int money = 0;
     private int hours = 10; //9am to 6pm
@@ -224,9 +224,10 @@ public class GameManager : Singleton<GameManager>
 
     public void SellTo( int index, LiquidQuantity fluid )
     {
-        float diff = customers[index].data.RemoveBestCase(fluid);
-        customers[index].money_earned += (int)(diff * MoneyPerGlass);
+        (float, int) diff = customers[index].data.RemoveBestCase(fluid);
+        customers[index].money_earned += (int)(diff.Item1 * MoneyPerGlass);
         customers[index].patience = Mathf.Min(customers[index].patience + 0.5f, customerPatience[customerPatience.keys.Length - 1].time);
+        customerDisplay[index].RemoveGlass(diff.Item2);
         if (customers[index].data.count <= 0)
         {
             var earned = (int)(customers[index].money_earned * (customerPatience.Evaluate(customers[index].patience) + 0.4f));
@@ -235,7 +236,7 @@ public class GameManager : Singleton<GameManager>
                 GetComponent<SoloAudioAgent>().Play();
 
             customers[index] = new Customer();
-            customerDisplay[index].RemoveCustomer(true);
+            customerDisplay[index].RemoveCustomer(diff.Item1 > 0);
             customer_delay[index] = 3.0f;
         }
     }
@@ -245,9 +246,9 @@ public class GameManager : Singleton<GameManager>
         int extra_hours = (int)(time / timePerHour);
 
         int hour = 9 + extra_hours;
-        if (extra_hours > 12)
+        if (hour > 12)
             return (hour - 12) + "pm";
-        else if (extra_hours == 12)
+        else if (hour == 12)
             return hour + "pm";
         return hour + "am";
     }

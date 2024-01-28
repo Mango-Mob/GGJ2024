@@ -139,6 +139,7 @@ MonoBehaviour:
   my_type: 1
   data: {fileID: 11400000, guid: 24ee65ca51e9dfa4781a602c209ca762, type: 2}
   state: 0
+  spawn_vfx: {fileID: 3363529937422894369, guid: 13a97524ee7dd7f4eb00bae50b2cd546, type: 3}
   stateLockTimer: 0
   stateLock: 0
   laugh_audio: {fileID: 4709379202535876558}

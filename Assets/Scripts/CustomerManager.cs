@@ -45,6 +45,11 @@ public class CustomerManager : MonoBehaviour
         CharacterPatience.value = value;
     }
 
+    public void RemoveGlass(int index)
+    {
+        Glasses[index].SetActive(false);
+    }
+
     public void RemoveCustomer(bool happy)
     {
         CharacterArt.SetInteger("Index", -1);
