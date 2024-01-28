@@ -47,8 +47,8 @@ public class LiquidQuantity
                             AddQuantity(pick_two, 0.5f);
                             break;
                         case 1: //80/20
-                            AddQuantity(pick_one, 0.8f);
-                            AddQuantity(pick_two, 0.2f);
+                            AddQuantity(pick_one, 0.7f);
+                            AddQuantity(pick_two, 0.3f);
                             break;
                     }
                 }
@@ -64,20 +64,10 @@ public class LiquidQuantity
                     options.RemoveAt(select);
                     select = Random.Range(0, options.Count);
                     var pick_three = options[select];
-                    switch (Random.Range(0, 2))
-                    {
-                        default:
-                        case 0: //30/30/30
-                            AddQuantity(pick_one, 0.3f);
-                            AddQuantity(pick_two, 0.3f);
-                            AddQuantity(pick_three, 0.3f);
-                            break;
-                        case 1: //60/20/20
-                            AddQuantity(pick_one, 0.6f);
-                            AddQuantity(pick_two, 0.2f);
-                            AddQuantity(pick_three, 0.2f);
-                            break;
-                    }
+
+                    AddQuantity(pick_one, 0.3f);
+                    AddQuantity(pick_two, 0.3f);
+                    AddQuantity(pick_three, 0.3f);
                 }
                 break;
         }

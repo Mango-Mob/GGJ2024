@@ -53,6 +53,8 @@ public class CustomerManager : MonoBehaviour
             Glasses[i].SetActive(false);
         has_character = false;
         audio.Play("CustomerLeave");
+        if(happy)
+            audio.Play("happy customer");
     }
 
     public void Show()

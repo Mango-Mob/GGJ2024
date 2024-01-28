@@ -13,9 +13,9 @@ public class CustomerData : ScriptableObject
     public float glassesRevelTime = 2.0f;
 
     const float glassQuantMean = 1.25f;
-    const float glassQuantSD = 1.25f;
-    const float glassFlavourMean = 1.65f;
-    const float glassFlavourSD = 0.75f;
+    const float glassQuantSD = 1f;
+    const float glassFlavourMean = 1.55f;
+    const float glassFlavourSD = 0.65f;
     public int count { get 
         {
             int size = 0;
@@ -29,7 +29,7 @@ public class CustomerData : ScriptableObject
 
     public static CustomerData GenerateCustomer( System.Random generator )
     {
-        CustomerData data = new CustomerData();
+        CustomerData data = CreateInstance<CustomerData>();
         data.type = (CustomerType)Random.Range(0, (int)CustomerType.NumCustomerType );
         var quant = Mathf.Clamp((int)generator.RandomNormalDistribution(glassQuantMean, glassQuantSD), 1, 3);
         data.quantities = new LiquidQuantity[quant];

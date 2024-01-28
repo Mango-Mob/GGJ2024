@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -101,6 +102,9 @@ public class GameManager : Singleton<GameManager>
 
     private void Update()
     {
+        if (SceneManager.GetActiveScene().name == "MenuScene")
+            return;
+
         if(time < total_time)
             time += Time.deltaTime;
 
@@ -179,6 +183,7 @@ public class GameManager : Singleton<GameManager>
                 if (customers[i].patience < 0)
                 {
                     money += (int)(customers[i].money_earned * 0.5f);
+                    GetComponent<SoloAudioAgent>().Play();
                     customers[i] = new Customer();
                     customerDisplay[i].RemoveCustomer(false);
                     customer_delay[i] = 3.0f;
@@ -199,7 +204,7 @@ public class GameManager : Singleton<GameManager>
         float diff = customers[index].data.RemoveBestCase(fluid);
         customers[index].money_earned += (int)(diff * MoneyPerGlass);
         customers[index].patience = Mathf.Min(customers[index].patience + 0.5f, customerPatience[customerPatience.keys.Length - 1].time);
-        if (customers[index].data.count < 0)
+        if (customers[index].data.count <= 0)
         {
             money += (int)(customers[index].money_earned * (customerPatience.Evaluate(customers[index].patience) + 0.4f));
             customers[index] = new Customer();
