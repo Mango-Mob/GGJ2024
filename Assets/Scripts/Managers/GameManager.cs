@@ -66,6 +66,8 @@ public class GameManager : Singleton<GameManager>
     private float time = 0.0f;
     private float total_time { get { return hours * timePerHour; } }
     public float timePerHour;
+    public bool isPaused = false;
+
     protected override void Awake()
     {
         base.Awake();
@@ -102,6 +104,22 @@ public class GameManager : Singleton<GameManager>
 
     private void Update()
     {
+        if (SceneManager.GetActiveScene().name == "MenuScene")
+        {
+            InputManager.Instance.cursorMode = CursorLockMode.None;
+            InputManager.Instance.isCursorVisible = true;
+        }
+        else if (isPaused)
+        {
+            InputManager.Instance.cursorMode = CursorLockMode.None;
+            InputManager.Instance.isCursorVisible = true;
+        }
+        else
+        {
+            InputManager.Instance.cursorMode = CursorLockMode.Locked;
+            InputManager.Instance.isCursorVisible = false;
+        }
+
         if (SceneManager.GetActiveScene().name == "MenuScene")
             return;
 
