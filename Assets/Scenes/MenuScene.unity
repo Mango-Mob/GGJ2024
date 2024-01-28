@@ -2370,7 +2370,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
+  m_BackGroundColor: {r: 0.9960785, g: 0.87843144, b: 0.9058824, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2379,15 +2379,15 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.38
-    y: 0
+    x: 0
+    y: 0.02
     width: 1
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 40
   orthographic: 1
-  orthographic size: 3.2
+  orthographic size: 2.69
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
