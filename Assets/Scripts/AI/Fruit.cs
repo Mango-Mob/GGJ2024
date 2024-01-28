@@ -63,7 +63,6 @@ public class Fruit : MonoBehaviour
         }
         if (stateLock)
         {
-            audio.PlayOnce("getting juiced");
             if(!laugh_audio.IsPlaying())
                 laugh_audio.PlayOnce("laugh " + Random.Range(1, 6));
             return;

@@ -182,8 +182,10 @@ public class GameManager : Singleton<GameManager>
                 customers[i].patience -= Time.deltaTime * customerPatienceDecay.Evaluate(customers[i].data.count);
                 if (customers[i].patience < 0)
                 {
-                    money += (int)(customers[i].money_earned * 0.5f);
-                    GetComponent<SoloAudioAgent>().Play();
+                    var earned = (int)(customers[i].money_earned * 0.5f);
+                    money += earned;
+                    if(earned > 0)
+                        GetComponent<SoloAudioAgent>().Play();
                     customers[i] = new Customer();
                     customerDisplay[i].RemoveCustomer(false);
                     customer_delay[i] = 3.0f;
@@ -206,7 +208,11 @@ public class GameManager : Singleton<GameManager>
         customers[index].patience = Mathf.Min(customers[index].patience + 0.5f, customerPatience[customerPatience.keys.Length - 1].time);
         if (customers[index].data.count <= 0)
         {
-            money += (int)(customers[index].money_earned * (customerPatience.Evaluate(customers[index].patience) + 0.4f));
+            var earned = (int)(customers[index].money_earned * (customerPatience.Evaluate(customers[index].patience) + 0.4f));
+            money += earned;
+            if (earned > 0)
+                GetComponent<SoloAudioAgent>().Play();
+
             customers[index] = new Customer();
             customerDisplay[index].RemoveCustomer(true);
             customer_delay[index] = 3.0f;
