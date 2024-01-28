@@ -105,22 +105,6 @@ public class GameManager : Singleton<GameManager>
     private void Update()
     {
         if (SceneManager.GetActiveScene().name == "MenuScene")
-        {
-            InputManager.Instance.cursorMode = CursorLockMode.None;
-            InputManager.Instance.isCursorVisible = true;
-        }
-        else if (isPaused)
-        {
-            InputManager.Instance.cursorMode = CursorLockMode.None;
-            InputManager.Instance.isCursorVisible = true;
-        }
-        else
-        {
-            InputManager.Instance.cursorMode = CursorLockMode.Locked;
-            InputManager.Instance.isCursorVisible = false;
-        }
-
-        if (SceneManager.GetActiveScene().name == "MenuScene")
             return;
 
         if(time < total_time)
@@ -129,7 +113,7 @@ public class GameManager : Singleton<GameManager>
         if(time >= total_time && currentCustomerCount <= 0)
         {
             // Leave level
-            SceneManager.LoadScene("EndScene");
+            SceneManager.LoadScene("EndScreen");
 
             return;
         }

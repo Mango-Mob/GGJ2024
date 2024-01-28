@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Michael Jordan
@@ -163,6 +164,18 @@ public class InputManager : SingletonPersistent<InputManager>
 
     private void Update()
     {
+        if (SceneManager.GetActiveScene().name == "MenuScene")
+        {
+            InputManager.Instance.cursorMode = CursorLockMode.None;
+            InputManager.Instance.isCursorVisible = true;
+        }
+        else
+        {
+            InputManager.Instance.cursorMode = CursorLockMode.Locked;
+            InputManager.Instance.isCursorVisible = false;
+        }
+
+
         Cursor.lockState = cursorMode;
         Cursor.visible = isCursorVisible;
 
