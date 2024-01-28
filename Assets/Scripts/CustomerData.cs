@@ -29,7 +29,7 @@ public class CustomerData : ScriptableObject
 
     public static CustomerData GenerateCustomer( System.Random generator )
     {
-        CustomerData data = new CustomerData();
+        CustomerData data = CreateInstance<CustomerData>();
         data.type = (CustomerType)Random.Range(0, (int)CustomerType.NumCustomerType );
         var quant = Mathf.Clamp((int)generator.RandomNormalDistribution(glassQuantMean, glassQuantSD), 1, 3);
         data.quantities = new LiquidQuantity[quant];
