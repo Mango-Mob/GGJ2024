@@ -183,6 +183,7 @@ public class GameManager : Singleton<GameManager>
                 if (customers[i].patience < 0)
                 {
                     money += (int)(customers[i].money_earned * 0.5f);
+                    GetComponent<SoloAudioAgent>().Play();
                     customers[i] = new Customer();
                     customerDisplay[i].RemoveCustomer(false);
                     customer_delay[i] = 3.0f;

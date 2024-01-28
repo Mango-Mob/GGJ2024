@@ -20,6 +20,8 @@ public class Fruit : MonoBehaviour
     private int chanceIdleMove;
     private Animator animatior;
     private UnityEngine.AI.NavMeshAgent Agent;
+    private MultiAudioAgent audio;
+    public MultiAudioAgent laugh_audio;
     private GameObject player;
 
     public float juiceAmount = 1.0f;
@@ -30,6 +32,7 @@ public class Fruit : MonoBehaviour
         Agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
         animatior = GetComponentInChildren<Animator>();
+        audio = GetComponent<MultiAudioAgent>();
         if (data)
         {
             aggroRadius = data.aggroRadius + Random.Range(-data.aggroDelta, data.aggroDelta);
@@ -59,7 +62,12 @@ public class Fruit : MonoBehaviour
             return;
         }
         if (stateLock)
+        {
+            audio.PlayOnce("getting juiced");
+            if(!laugh_audio.IsPlaying())
+                laugh_audio.PlayOnce("laugh " + Random.Range(1, 6));
             return;
+        }
 
         if (stateMaxTime[(int)state] > 0)
             stateTimer -= Time.deltaTime;
