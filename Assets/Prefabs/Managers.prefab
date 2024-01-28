@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 643177026969386664}
   - component: {fileID: 4656335407894821117}
   - component: {fileID: 3245994391593621478}
+  - component: {fileID: 5197008253751861279}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -53,7 +54,7 @@ MonoBehaviour:
   IsInCombat: 0
   time_desplay: 
   SpawnDelay: 0
-  MoneyPerGlass: 0
+  MoneyPerGlass: 500
   canSell: 0
   customerSpawnRate:
     serializedVersion: 2
@@ -242,7 +243,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  money: 500
+  money: 0
   timePerHour: 16
 --- !u!114 &4244153473717058543
 MonoBehaviour:
@@ -257,7 +258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCursorVisible: 1
-  cursorMode: 0
+  cursorMode: 1
   bindHasUpdated: 1
   m_leftClick: {fileID: 0}
   m_rightClick: {fileID: 0}
@@ -373,3 +374,24 @@ MonoBehaviour:
   hasFadeTransitions: 0
   fadeTime: 5
   currentlyPlaying: {fileID: 0}
+--- !u!114 &5197008253751861279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 83942764246345675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 024ecd21f977d0b4cbfd71ce0c41f316, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localVolume: 1
+  isMuted: 0
+  is3D: 0
+  min3D_Dist: 1
+  max3D_Dist: 500
+  mainClip: {fileID: 8300000, guid: 2b77beedf1b8d1b46a42968cc166054b, type: 3}
+  channel: 1
+  isPlayOnAwake: 0
+  isLooping: 0
