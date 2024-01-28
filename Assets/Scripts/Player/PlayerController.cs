@@ -61,6 +61,11 @@ public class PlayerController : MonoBehaviour
             move.Normalize();
         }
 
+        if (move.magnitude >= 0.8f)
+        {
+            playerMovement.ReleaseGrab();
+        }
+
         playerMovement.playerAnimator.SetBool("IsMoving", move.magnitude > 0.0f);
 
         move = Vector2.SmoothDamp(currentMove, move, ref moveVelocity, 0.1f);
