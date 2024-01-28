@@ -1088,10 +1088,10 @@ MonoBehaviour:
   playerAnimator: {fileID: 773587257787865962}
   moveSpeed: 5
   rotSpeed: 10
-  diveSpeed: 10
+  diveSpeed: 20
   fallAccel: 9.81
-  diveDuration: 0.5
-  grabRadius: 0.5
+  diveDuration: 0.3
+  grabRadius: 0.8
   hitDuration: 1
   juiceRate: 0.1
   stopJuiceTime: 1
@@ -1142,7 +1142,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8786524479820356301}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.549}
+  m_LocalPosition: {x: 0, y: 0, z: 1.065}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2401073171785013396}

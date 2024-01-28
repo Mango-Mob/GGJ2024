@@ -135,9 +135,9 @@ public class PlayerMovement : MonoBehaviour
             yield return new WaitForEndOfFrame(); 
         }
 
-        playerController.audioAgent.Play("tackle fail");
+        //playerController.audioAgent.Play("tackle fail");
 
-        yield return new WaitForSeconds(0.633f);
+        yield return new WaitForSeconds(0.433f);
 
         isDiving = false;
     }
@@ -179,6 +179,8 @@ public class PlayerMovement : MonoBehaviour
             grabbedFruit.stateLock = false;
             grabbedFruit = null;
         }
+
+        playerAnimator.SetBool("IsTickling", false);
     }
     IEnumerator TickleCoroutine()
     {
