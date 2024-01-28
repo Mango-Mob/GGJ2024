@@ -14748,8 +14748,8 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.14406581
     - serializedVersion: 3
-      time: 93.32544
-      value: 12.578723
+      time: 92.26132
+      value: 12.978321
       inSlope: 0.040718265
       outSlope: 0.040718265
       tangentMode: 0
@@ -14757,19 +14757,19 @@ MonoBehaviour:
       inWeight: 0.87014896
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 109.06481
-      value: 13.528062
-      inSlope: 0.054232426
-      outSlope: 0.054232426
+      time: 108.000694
+      value: 13.92766
+      inSlope: 0.049566142
+      outSlope: 0.049566142
       tangentMode: 136
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 129.84032
-      value: 14.559013
-      inSlope: 0.06629058
-      outSlope: 0.06629058
+      time: 128.98903
+      value: 14.798772
+      inSlope: 0.054297496
+      outSlope: 0.054297496
       tangentMode: 136
       weightedMode: 0
       inWeight: 0.33333334
@@ -14777,29 +14777,29 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 147.20154
       value: 16.056168
-      inSlope: 0.07602716
-      outSlope: 0.07602716
+      inSlope: 0.0592613
+      outSlope: 0.0592613
       tangentMode: 136
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 161.19684
-      value: 16.94296
-      inSlope: 0
-      outSlope: 0
+      time: 162.47377
+      value: 16.783121
+      inSlope: 0.005504236
+      outSlope: 0.005504236
       tangentMode: 136
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 181.75072
-      value: 16.87033
-      inSlope: 0.023797423
-      outSlope: 0.023797423
+      time: 181.53789
+      value: 16.83037
+      inSlope: 0.0005805652
+      outSlope: 0.0005805652
       tangentMode: 0
       weightedMode: 0
-      inWeight: 1
+      inWeight: 0.65864754
       outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -17864,11 +17864,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2401073171804053025, guid: acb5709280ec9844e92aaefdd03151a2, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.75855243
+      value: -0.7585524
       objectReference: {fileID: 0}
     - target: {fileID: 2401073171804053025, guid: acb5709280ec9844e92aaefdd03151a2, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.098243415
+      value: 0.09824342
       objectReference: {fileID: 0}
     - target: {fileID: 2401073172222939606, guid: acb5709280ec9844e92aaefdd03151a2, type: 3}
       propertyPath: m_Name

@@ -68,6 +68,8 @@ public class GameManager : Singleton<GameManager>
     public float timePerHour;
     public bool isPaused = false;
 
+    private float end_transition_delay = 2.0f;
+
     protected override void Awake()
     {
         base.Awake();
@@ -110,18 +112,21 @@ public class GameManager : Singleton<GameManager>
         if(time < total_time)
             time += Time.deltaTime;
 
-        if(time >= total_time && currentCustomerCount <= 0)
+        FruitSpawn();
+        
+        if (time >= total_time && currentCustomerCount <= 0)
         {
-            // Leave level
-            EndMenu.moneyText = GetScoreDisplay();
-            SceneManager.LoadScene("EndScreen");
+            end_transition_delay -= Time.deltaTime;
+            if(end_transition_delay < 0)
+            {
+                // Leave level
+                EndMenu.moneyText = GetScoreDisplay();
+                SceneManager.LoadScene("EndScreen");
+            }
             return;
         }
 
         CustomerUpdate();
-
-        if (time < total_time)
-            FruitSpawn();
 
         time_desplay = GetTimeNow();
     }
