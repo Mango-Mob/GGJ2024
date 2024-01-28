@@ -90,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Dive()
     {
-        if (isDiving)
+        if (isDiving || juiceTimeStamp + 0.5f > Time.time)
             return;
 
         StartCoroutine(DiveCoroutine());
@@ -172,7 +172,7 @@ public class PlayerMovement : MonoBehaviour
     {
         return grabbedFruit;
     }
-    private void ReleaseGrab()
+    public void ReleaseGrab()
     {
         if (grabbedFruit)
         {
