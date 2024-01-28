@@ -305,6 +305,7 @@ MonoBehaviour:
   audioClips:
   - {fileID: 8300000, guid: 81f602864da88524686c08bd665b614a, type: 3}
   - {fileID: 8300000, guid: a042dbb193ec58748a419a69b0d49c05, type: 3}
+  - {fileID: 8300000, guid: 01c31135807d9cd40a721f94ee62427e, type: 3}
   audioPlayersCount: 5
   channel: 1
 --- !u!1 &8530780140066283907
