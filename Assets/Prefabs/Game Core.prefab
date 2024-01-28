@@ -565,11 +565,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2401073171804053025, guid: acb5709280ec9844e92aaefdd03151a2, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.75855243
+      value: -0.7585524
       objectReference: {fileID: 0}
     - target: {fileID: 2401073171804053025, guid: acb5709280ec9844e92aaefdd03151a2, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.098243415
+      value: 0.09824342
       objectReference: {fileID: 0}
     - target: {fileID: 2401073172222939606, guid: acb5709280ec9844e92aaefdd03151a2, type: 3}
       propertyPath: m_Name
@@ -653,7 +653,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2401073173598281150, guid: acb5709280ec9844e92aaefdd03151a2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.1809998
+      value: 4.75
       objectReference: {fileID: 0}
     - target: {fileID: 2401073173598281150, guid: acb5709280ec9844e92aaefdd03151a2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -661,19 +661,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2401073173598281150, guid: acb5709280ec9844e92aaefdd03151a2, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.6661021
+      value: 0.66610205
       objectReference: {fileID: 0}
     - target: {fileID: 2401073173598281150, guid: acb5709280ec9844e92aaefdd03151a2, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.10489625
+      value: 0.10489623
       objectReference: {fileID: 0}
     - target: {fileID: 2401073173598281150, guid: acb5709280ec9844e92aaefdd03151a2, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.729458
+      value: -0.72945803
       objectReference: {fileID: 0}
     - target: {fileID: 2401073173598281150, guid: acb5709280ec9844e92aaefdd03151a2, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.11487342
+      value: 0.11487341
+      objectReference: {fileID: 0}
+    - target: {fileID: 2401073173598281151, guid: acb5709280ec9844e92aaefdd03151a2, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2401073173598281151, guid: acb5709280ec9844e92aaefdd03151a2, type: 3}
       propertyPath: m_Cameras.Array.data[0]
@@ -724,6 +728,14 @@ PrefabInstance:
     - target: {fileID: 854743720838932013, guid: bcbe502a625da5141a2d41456ee544cc, type: 3}
       propertyPath: SpawnDelay
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 854743720838932013, guid: bcbe502a625da5141a2d41456ee544cc, type: 3}
+      propertyPath: initial_count
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 854743720838932013, guid: bcbe502a625da5141a2d41456ee544cc, type: 3}
+      propertyPath: fruit_spawn_time
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 854743720838932013, guid: bcbe502a625da5141a2d41456ee544cc, type: 3}
       propertyPath: customerDisplay.Array.data[0]

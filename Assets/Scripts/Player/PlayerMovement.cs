@@ -158,6 +158,7 @@ public class PlayerMovement : MonoBehaviour
         if (grabbedFruit.juiceAmount <= 0.0f)
         {
             // Release grabbed fruit
+            grabbedFruit.EnterState(Fruit.AIStates.Zombie);
             ReleaseGrab();
         }
 
