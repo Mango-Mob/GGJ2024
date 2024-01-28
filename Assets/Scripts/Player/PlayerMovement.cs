@@ -135,7 +135,9 @@ public class PlayerMovement : MonoBehaviour
             yield return new WaitForEndOfFrame(); 
         }
 
-        yield return new WaitForSeconds(0.633f);
+        //playerController.audioAgent.Play("tackle fail");
+
+        yield return new WaitForSeconds(0.433f);
 
         isDiving = false;
     }
@@ -154,6 +156,8 @@ public class PlayerMovement : MonoBehaviour
 
         grabbedFruit.juiceAmount -= juiceRate;
         playerController.glassQuantities[1].AddQuantity(grabbedFruit.my_type, juiceRate);
+
+        playerController.audioAgent.Play("getting juiced");
 
         if (grabbedFruit.juiceAmount <= 0.0f)
         {
@@ -175,6 +179,8 @@ public class PlayerMovement : MonoBehaviour
             grabbedFruit.stateLock = false;
             grabbedFruit = null;
         }
+
+        playerAnimator.SetBool("IsTickling", false);
     }
     IEnumerator TickleCoroutine()
     {
