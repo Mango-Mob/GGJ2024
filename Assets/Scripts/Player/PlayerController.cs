@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private PlayerMovement playerMovement;
+    public MultiAudioAgent audioAgent { private set; get; }
 
     // Smooth damp movement
     private Vector2 currentMove;
@@ -24,6 +25,8 @@ public class PlayerController : MonoBehaviour
         {
             glassQuantities[i] = new LiquidQuantity();
         }
+
+        audioAgent = GetComponent<MultiAudioAgent>();
     }
 
     // Start is called before the first frame update
@@ -130,19 +133,31 @@ public class PlayerController : MonoBehaviour
 
     public void ChangeGlass(bool _forward)
     {
+        audioAgent.Play("splash swapping drinks");
+
+
         if (_forward)
         {
-            LiquidQuantity tempLiq = glassQuantities[0];
-            glassQuantities[0] = glassQuantities[2];
-            glassQuantities[2] = glassQuantities[1];
-            glassQuantities[1] = tempLiq;
+            LiquidQuantity tempLiq = glassQuantities[1];
+            glassQuantities[1] = glassQuantities[2];
+            glassQuantities[2] = tempLiq;
+
+
+            //LiquidQuantity tempLiq = glassQuantities[0];
+            //glassQuantities[0] = glassQuantities[2];
+            //glassQuantities[2] = glassQuantities[1];
+            //glassQuantities[1] = tempLiq;
         }
         else
         {
-            LiquidQuantity tempLiq = glassQuantities[0];
-            glassQuantities[0] = glassQuantities[1];
-            glassQuantities[1] = glassQuantities[2];
-            glassQuantities[2] = tempLiq;
+            LiquidQuantity tempLiq = glassQuantities[1];
+            glassQuantities[1] = glassQuantities[0];
+            glassQuantities[0] = tempLiq;
+
+            //LiquidQuantity tempLiq = glassQuantities[0];
+            //glassQuantities[0] = glassQuantities[1];
+            //glassQuantities[1] = glassQuantities[2];
+            //glassQuantities[2] = tempLiq;
         }
     }
     public void GetHit()
