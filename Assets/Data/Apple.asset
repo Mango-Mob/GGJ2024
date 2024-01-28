@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Apple
   m_EditorClassIdentifier: 
   healthTime: 30
-  deathTime: 5
-  aggroRadius: 3
-  aggroDelta: 0.5
+  deathTime: 2
+  aggroRadius: 6
+  aggroDelta: 1
   IdleSpeed: 2
-  RunSpeed: 4
+  RunSpeed: 5
   movementSpeedDelta: 0.5
   idleTime: 2
   idleTimeDelta: 1
@@ -25,4 +25,4 @@ MonoBehaviour:
   idleMoveTimeDelta: 0.75
   runTime: 0
   runTimeDelta: 0
-  chanceToMoveAgain: 20
+  chanceToMoveAgain: 25

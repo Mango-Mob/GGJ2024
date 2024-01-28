@@ -59,7 +59,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1645837783990560316}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &7623714191057174756
 SkinnedMeshRenderer:
@@ -421,7 +421,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1645837783990560316}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &6161934476639344560
 SkinnedMeshRenderer:
@@ -790,7 +790,7 @@ Transform:
   - {fileID: 526510082498547461}
   - {fileID: 4613788000760851085}
   m_Father: {fileID: 1645837783990560316}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: -0.017582834, y: 3.2202473, z: -89.687416}
 --- !u!1 &6768390006132842648
 GameObject:
@@ -1004,7 +1004,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1645837783990560316}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &1626503972338473553
 SkinnedMeshRenderer:
@@ -1169,7 +1169,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1645837783990560316}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &5105433650456332775
 SkinnedMeshRenderer:
@@ -1255,7 +1255,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1645837783990560316}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &5545653944925657626
 SkinnedMeshRenderer:
@@ -1373,6 +1373,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 51f53d96090aacb4abc33147c38095c0, type: 2}
+    - target: {fileID: 6744288619249741337, guid: ff6742ced64f768428deae5fb2a4b602, type: 3}
+      propertyPath: mainRenderer
+      value: 
+      objectReference: {fileID: 5545653944925657626}
     - target: {fileID: 6744288619249741337, guid: ff6742ced64f768428deae5fb2a4b602, type: 3}
       propertyPath: healthyMaterial
       value: 

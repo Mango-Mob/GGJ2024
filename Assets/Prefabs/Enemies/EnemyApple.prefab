@@ -124,7 +124,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7773288235170027562}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &4524880650365054826
 SkinnedMeshRenderer:
@@ -431,7 +431,7 @@ Transform:
   - {fileID: 8505070757680293525}
   - {fileID: 3549374538375168797}
   m_Father: {fileID: 7773288235170027562}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: -9.781644, y: -0.0556812, z: -89.68664}
 --- !u!1 &3218024458916612360
 GameObject:
@@ -799,7 +799,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7773288235170027562}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &4763452710501837080
 SkinnedMeshRenderer:
@@ -930,7 +930,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7773288235170027562}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &5185888897987058643
 SkinnedMeshRenderer:
@@ -1169,7 +1169,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7773288235170027562}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &232769542473936374
 SkinnedMeshRenderer:
@@ -1254,7 +1254,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7773288235170027562}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &4323537972021023893
 SkinnedMeshRenderer:
@@ -1403,6 +1403,10 @@ PrefabInstance:
       propertyPath: my_type
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6744288619249741337, guid: ff6742ced64f768428deae5fb2a4b602, type: 3}
+      propertyPath: mainRenderer
+      value: 
+      objectReference: {fileID: 232769542473936374}
     - target: {fileID: 7559807807822401273, guid: ff6742ced64f768428deae5fb2a4b602, type: 3}
       propertyPath: m_Name
       value: EnemyApple

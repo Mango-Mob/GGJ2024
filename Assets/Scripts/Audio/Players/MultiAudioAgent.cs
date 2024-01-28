@@ -37,6 +37,17 @@ public class MultiAudioAgent : AudioAgent
             players[i].Set3DRange(min3D_Dist, max3D_Dist);
         }
     }
+    public bool IsPlaying()
+    {
+        foreach (var player in players)
+        {
+            if (player.IsPlaying() )
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 
     protected override void Update()
     {
