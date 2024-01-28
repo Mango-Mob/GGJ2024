@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
             move.Normalize();
         }
 
-        if (move.magnitude >= 0.8f)
+        if (move.magnitude >= 0.8f && playerMovement.grabTimeStamp + 0.8f < Time.time)
         {
             playerMovement.ReleaseGrab();
         }

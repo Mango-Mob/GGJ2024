@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private Fruit grabbedFruit;
     private Vector3 grabVelocity;
     private float grabSmooth = 0.1f;
+    public float grabTimeStamp;
 
     [Header("Stats")]
     [SerializeField] private float moveSpeed = 5.0f;
@@ -184,13 +185,11 @@ public class PlayerMovement : MonoBehaviour
     }
     IEnumerator TickleCoroutine()
     {
-        Debug.Log("Tickling...");
-
         playerAnimator.SetBool("IsTickling", true);
 
+        grabTimeStamp = Time.time;
         juiceTimeStamp = Time.time;
 
-        //yield return new WaitForEndOfFrame();
         yield return new WaitUntil(() => { return Time.time > juiceTimeStamp + stopJuiceTime || grabbedFruit == null; });
 
         playerAnimator.SetBool("IsTickling", false);
