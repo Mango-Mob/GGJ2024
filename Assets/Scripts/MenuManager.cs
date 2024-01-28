@@ -16,7 +16,7 @@ public class MenuManager : MonoBehaviour
     {
         settingsGroup.SetActive(false);
 
-        masterVolume.value = 1.0f;
+        masterVolume.value = 0.5f;
         soundEffectVolume.value = 0.5f;
         musicVolume.value = 0.5f;
     }
