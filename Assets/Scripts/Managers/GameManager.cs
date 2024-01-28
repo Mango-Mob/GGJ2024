@@ -113,8 +113,8 @@ public class GameManager : Singleton<GameManager>
         if(time >= total_time && currentCustomerCount <= 0)
         {
             // Leave level
+            EndMenu.moneyText = GetScoreDisplay();
             SceneManager.LoadScene("EndScreen");
-
             return;
         }
 

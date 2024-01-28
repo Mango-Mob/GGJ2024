@@ -156,7 +156,7 @@ Transform:
   - {fileID: 1995106395}
   - {fileID: 747978160}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &14261200
 PrefabInstance:
@@ -358,7 +358,7 @@ Transform:
   - {fileID: 1946035173}
   - {fileID: 594703353}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &65459257 stripped
 Transform:
@@ -1038,7 +1038,7 @@ Transform:
   - {fileID: 1583366514}
   - {fileID: 526047359}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &143786319
 GameObject:
@@ -4542,7 +4542,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &575156070 stripped
 Transform:
@@ -11643,7 +11643,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 490288, guid: 11f926089a397c94c82e74b3e88c4964, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 490288, guid: 11f926089a397c94c82e74b3e88c4964, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12216,6 +12216,58 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ef961c3be52f4f4ea3eefc4a28346f8, type: 3}
+--- !u!1 &1603210117
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1603210119}
+  - component: {fileID: 1603210118}
+  m_Layer: 0
+  m_Name: Music
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1603210118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603210117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 024ecd21f977d0b4cbfd71ce0c41f316, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localVolume: 1
+  isMuted: 0
+  is3D: 0
+  min3D_Dist: 1
+  max3D_Dist: 500
+  mainClip: {fileID: 8300000, guid: 855c7cdf0f487f1468f8859a352c90c4, type: 3}
+  channel: 2
+  isPlayOnAwake: 1
+  isLooping: 1
+--- !u!4 &1603210119
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603210117}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 116.09782, y: 17.27037, z: -187.22438}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1605531211 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6145235816348744848, guid: 5f83c2254db07274ab6a7ba798aab0f8, type: 3}
@@ -14660,71 +14712,71 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 1
     - serializedVersion: 3
-      time: 17.558983
-      value: 0.6099261
-      inSlope: 0.07756415
-      outSlope: 0.07756415
+      time: 20.112858
+      value: 1.8831588
+      inSlope: 0.023757512
+      outSlope: 0.023757512
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.9279348
-      outWeight: 0.67009443
+      outWeight: 0.48865846
     - serializedVersion: 3
-      time: 40.208965
-      value: 2.4285789
-      inSlope: 0.1143925
-      outSlope: 0.1143925
+      time: 39.14485
+      value: 3.5426576
+      inSlope: 0.109007165
+      outSlope: 0.109007165
       tangentMode: 136
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 66.26851
-      value: 6.1819305
-      inSlope: 0.19084258
-      outSlope: 0.19084258
+      time: 61.373585
+      value: 6.3808737
+      inSlope: 0.16678452
+      outSlope: 0.16678452
       tangentMode: 136
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 82.70867
-      value: 10.539332
-      inSlope: 0.2166031
-      outSlope: 0.2166031
+      time: 76.32398
+      value: 9.743562
+      inSlope: 0.6061485
+      outSlope: 0.6061485
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.14406581
+    - serializedVersion: 3
+      time: 93.32544
+      value: 12.578723
+      inSlope: 0.040718265
+      outSlope: 0.040718265
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.87014896
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 109.06481
+      value: 13.528062
+      inSlope: 0.054232426
+      outSlope: 0.054232426
       tangentMode: 136
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 93.96392
-      value: 12.180842
-      inSlope: 0.0799835
-      outSlope: 0.0799835
+      time: 129.84032
+      value: 14.559013
+      inSlope: 0.06629058
+      outSlope: 0.06629058
       tangentMode: 136
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 111.61869
-      value: 12.851657
-      inSlope: 0.04428191
-      outSlope: 0.04428191
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 132.3942
-      value: 13.882608
-      inSlope: 0.06629056
-      outSlope: 0.06629056
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 149.75542
-      value: 15.379762
+      time: 147.20154
+      value: 16.056168
       inSlope: 0.07602716
       outSlope: 0.07602716
       tangentMode: 136
@@ -14732,10 +14784,10 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 163.75072
-      value: 16.266556
-      inSlope: 0.04658713
-      outSlope: 0.04658713
+      time: 161.19684
+      value: 16.94296
+      inSlope: 0
+      outSlope: 0
       tangentMode: 136
       weightedMode: 0
       inWeight: 0.33333334
@@ -14832,14 +14884,14 @@ MonoBehaviour:
   fruitCount: 0000000000000000000000000000000000000000
   initial_count: 2
   spawn_count: 1
-  fruit_spawn_time: 18
+  fruit_spawn_time: 14
   customerDisplay:
   - {fileID: 789941342}
   - {fileID: 789941341}
   - {fileID: 789941340}
   - {fileID: 789941337}
   money: 0
-  timePerHour: 16
+  timePerHour: 14
   isPaused: 0
 --- !u!4 &1915053022
 Transform:
@@ -14853,7 +14905,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1915053023
 MonoBehaviour:
@@ -17341,7 +17393,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3689851056015901473, guid: bcbe502a625da5141a2d41456ee544cc, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3689851056015901473, guid: bcbe502a625da5141a2d41456ee544cc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17812,11 +17864,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2401073171804053025, guid: acb5709280ec9844e92aaefdd03151a2, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.7585524
+      value: -0.75855243
       objectReference: {fileID: 0}
     - target: {fileID: 2401073171804053025, guid: acb5709280ec9844e92aaefdd03151a2, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.09824342
+      value: 0.098243415
       objectReference: {fileID: 0}
     - target: {fileID: 2401073172222939606, guid: acb5709280ec9844e92aaefdd03151a2, type: 3}
       propertyPath: m_Name
@@ -17824,7 +17876,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2401073172222939607, guid: acb5709280ec9844e92aaefdd03151a2, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2401073172222939607, guid: acb5709280ec9844e92aaefdd03151a2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17967,5 +18019,5 @@ Transform:
   - {fileID: 1996062382}
   - {fileID: 65459257}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

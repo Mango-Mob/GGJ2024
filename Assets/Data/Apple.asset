@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 255d50efe58879141b6013f99a7719da, type: 3}
   m_Name: Apple
   m_EditorClassIdentifier: 
-  healthTime: 30
+  healthTime: 25
   deathTime: 2
-  aggroRadius: 6
-  aggroDelta: 1
-  IdleSpeed: 2
+  aggroRadius: 5
+  aggroDelta: 2
+  IdleSpeed: 2.5
   RunSpeed: 5
-  movementSpeedDelta: 0.5
+  movementSpeedDelta: 0.7
   idleTime: 2
   idleTimeDelta: 1
   idleMoveTime: 2
