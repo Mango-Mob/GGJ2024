@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private PlayerMovement playerMovement;
+    private MultiAudioAgent audioAgent;
 
     // Smooth damp movement
     private Vector2 currentMove;
@@ -24,6 +25,8 @@ public class PlayerController : MonoBehaviour
         {
             glassQuantities[i] = new LiquidQuantity();
         }
+
+        audioAgent = GetComponent<MultiAudioAgent>();
     }
 
     // Start is called before the first frame update
