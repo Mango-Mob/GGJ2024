@@ -101,7 +101,7 @@ public class PlayerMovement : MonoBehaviour
 
         isDiving = true;
 
-        yield return new WaitForSeconds(0.367f);
+        yield return new WaitForSeconds(0.1f);
 
         float startTime = Time.time; 
         while (Time.time < startTime + diveDuration)

@@ -102,7 +102,6 @@ GameObject:
   - component: {fileID: 8893378793254511103}
   - component: {fileID: 6744288619249741337}
   - component: {fileID: 3961543671949644752}
-  - component: {fileID: 6535405705785232902}
   m_Layer: 6
   m_Name: EnemyBase
   m_TagString: Untagged
@@ -166,24 +165,3 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &6535405705785232902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7559807807822401273}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 013d2f1b59b0f71408bb9ba816659dc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  localVolume: 1
-  isMuted: 0
-  is3D: 0
-  min3D_Dist: 1
-  max3D_Dist: 500
-  audioClips:
-  - {fileID: 8300000, guid: 9c76e81cf254cb94ba4072b9e5441dc4, type: 3}
-  audioPlayersCount: 5
-  channel: 1
